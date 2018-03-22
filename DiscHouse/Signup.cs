@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -9,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DiscHouse
 {
-    public partial class MainForm : Form
+    public partial class Signup : Form
     {
-        public MainForm()
+        public Signup()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
