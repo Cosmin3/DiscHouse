@@ -39,7 +39,12 @@ namespace DiscHouse
         
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            Artists_guest newForm = new Artists_guest();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
 
         private void button3_Click(object sender, EventArgs e)

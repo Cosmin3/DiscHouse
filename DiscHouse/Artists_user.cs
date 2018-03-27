@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DiscHouse
 {
-    public partial class Artists_admin : Form
+    public partial class Artists_user : Form
     {
-        public Artists_admin()
+        public Artists_user()
         {
             InitializeComponent();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {
