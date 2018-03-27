@@ -118,5 +118,10 @@
   <ItemGroup>
     <None Include="Resources\main-background1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\29750385_1106334422843026_1995465623_n.jpg" />
+    <Content Include="Resources\Funky2.png" />
+    <Content Include="Resources\needle_turntable_vinyl_music_sound_the_rhythm_play_vintage-791055 %282%29.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
