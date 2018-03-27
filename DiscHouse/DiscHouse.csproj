@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Artists_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artists_admin.Designer.cs">
+      <DependentUpon>Artists_admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Albums_admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,9 +77,6 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Albums_admin.resx">
-      <DependentUpon>Albums_admin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,12 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\main-background1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\prima.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PG2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

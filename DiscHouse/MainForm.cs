@@ -39,6 +39,11 @@ namespace DiscHouse
         
         private void button2_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             Signup newForm = new Signup();
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
