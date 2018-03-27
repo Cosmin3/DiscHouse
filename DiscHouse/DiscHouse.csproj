@@ -75,6 +75,18 @@
     <Compile Include="Albums_admin.Designer.cs">
       <DependentUpon>Albums_admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Artists_guest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artists_guest.Designer.cs">
+      <DependentUpon>Artists_guest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Artists_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artists_user.Designer.cs">
+      <DependentUpon>Artists_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Artists_admin.resx">
       <DependentUpon>Artists_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artists_guest.resx">
+      <DependentUpon>Artists_guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artists_user.resx">
+      <DependentUpon>Artists_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

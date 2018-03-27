@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace DiscHouse
 {
-    public partial class Artists_admin : Form
+    public partial class Artists_guest : Form
     {
-        public Artists_admin()
+        public Artists_guest()
         {
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         void closeForm(object sender, FormClosedEventArgs e)
         {
             this.Close();
         }
+
         private void button4_Click(object sender, EventArgs e)
         {
             MainForm newForm = new MainForm();
