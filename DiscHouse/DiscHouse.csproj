@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_Album.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Album.Designer.cs">
+      <DependentUpon>Add_Album.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Song.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Song.Designer.cs">
+      <DependentUpon>Add_Song.cs</DependentUpon>
+    </Compile>
     <Compile Include="Album.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,12 +118,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Remove_Album.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Remove_Album.Designer.cs">
+      <DependentUpon>Remove_Album.cs</DependentUpon>
+    </Compile>
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_Album.resx">
+      <DependentUpon>Add_Album.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Song.resx">
+      <DependentUpon>Add_Song.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Album.resx">
       <DependentUpon>Album.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +168,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Remove_Album.resx">
+      <DependentUpon>Remove_Album.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,7 +191,9 @@
     <None Include="Resources\main-background1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Images\Bg3.jpg" />
     <Content Include="Resources\29750385_1106334422843026_1995465623_n.jpg" />
+    <Content Include="Resources\Bg3.jpg" />
     <Content Include="Resources\Funky2.png" />
     <Content Include="Resources\needle_turntable_vinyl_music_sound_the_rhythm_play_vintage-791055 %282%29.jpg" />
   </ItemGroup>

@@ -29,7 +29,12 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Add_Album newForm = new Add_Album();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,6 +48,16 @@ namespace DiscHouse
         private void button5_Click(object sender, EventArgs e)
         {
             Artists_user newForm = new Artists_user();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Remove_Album newForm = new Remove_Album();
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();
