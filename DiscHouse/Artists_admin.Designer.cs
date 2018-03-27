@@ -37,17 +37,20 @@
             // 
             // listBox1
             // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(506, 532);
+            this.listBox1.Size = new System.Drawing.Size(506, 530);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button2.FlatAppearance.BorderSize = 4;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Georgia", 13.8F);
@@ -61,7 +64,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button3.FlatAppearance.BorderSize = 4;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Georgia", 13.8F);
@@ -75,7 +78,7 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button4.FlatAppearance.BorderSize = 4;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Georgia", 13.8F);

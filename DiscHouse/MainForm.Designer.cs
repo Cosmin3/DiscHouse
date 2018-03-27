@@ -37,7 +37,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(100, System.Drawing.Color.Black);
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.FlatAppearance.BorderSize = 4;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -82,7 +82,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(100, System.Drawing.Color.Black);
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.BorderSize = 4;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -99,7 +99,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(100, System.Drawing.Color.Black);
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button3.FlatAppearance.BorderSize = 4;
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
