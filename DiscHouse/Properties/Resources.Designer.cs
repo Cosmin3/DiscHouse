@@ -63,9 +63,39 @@ namespace DiscHouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _29750385_1106334422843026_1995465623_n {
+            get {
+                object obj = ResourceManager.GetObject("29750385_1106334422843026_1995465623_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Funky2 {
+            get {
+                object obj = ResourceManager.GetObject("Funky2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap main_background {
             get {
                 object obj = ResourceManager.GetObject("main-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap needle_turntable_vinyl_music_sound_the_rhythm_play_vintage_791055__2_ {
+            get {
+                object obj = ResourceManager.GetObject("needle_turntable_vinyl_music_sound_the_rhythm_play_vintage-791055 (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

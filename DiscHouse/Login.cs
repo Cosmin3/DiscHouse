@@ -19,9 +19,17 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Artists_admin newForm = new Artists_admin();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
-
+        void closeForm(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
