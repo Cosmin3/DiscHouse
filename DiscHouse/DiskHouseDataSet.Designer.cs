@@ -633,10 +633,10 @@ namespace DiscHouse {
                 this.columnId.Unique = true;
                 this.columnId.MaxLength = 10;
                 this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 50;
+                this.columnName.MaxLength = 150;
                 this.columnYear.AllowDBNull = false;
                 this.columnGenre.AllowDBNull = false;
-                this.columnGenre.MaxLength = 15;
+                this.columnGenre.MaxLength = 50;
                 this.columnArtist_Id.AllowDBNull = false;
                 this.columnArtist_Id.MaxLength = 10;
             }
@@ -944,11 +944,11 @@ namespace DiscHouse {
                 this.columnId.Unique = true;
                 this.columnId.MaxLength = 10;
                 this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 56;
+                this.columnName.MaxLength = 150;
                 this.columnDescription.AllowDBNull = false;
                 this.columnDescription.MaxLength = 2147483647;
                 this.columnMembers.AllowDBNull = false;
-                this.columnMembers.MaxLength = 100;
+                this.columnMembers.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1254,7 +1254,7 @@ namespace DiscHouse {
                 this.columnId.Unique = true;
                 this.columnId.MaxLength = 10;
                 this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 50;
+                this.columnName.MaxLength = 150;
                 this.columnAlbum_Id.AllowDBNull = false;
                 this.columnAlbum_Id.MaxLength = 10;
                 this.columnYear.AllowDBNull = false;
@@ -1565,7 +1565,7 @@ namespace DiscHouse {
                 this.columnAlbum_Id.AllowDBNull = false;
                 this.columnAlbum_Id.MaxLength = 10;
                 this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 50;
+                this.columnName.MaxLength = 150;
                 this.columnLength.AllowDBNull = false;
             }
             
@@ -1869,9 +1869,9 @@ namespace DiscHouse {
                 this.columnId.Unique = true;
                 this.columnId.MaxLength = 10;
                 this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 56;
+                this.columnName.MaxLength = 150;
                 this.columnPassword.AllowDBNull = false;
-                this.columnPassword.MaxLength = 25;
+                this.columnPassword.MaxLength = 50;
                 this.columnRights.AllowDBNull = false;
                 this.columnRights.MaxLength = 1;
             }
@@ -2738,7 +2738,7 @@ SELECT Id, Name, Year, Genre, [Artist.Id] FROM Albums WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3138,7 +3138,7 @@ SELECT Id, Name, Description, Members FROM artists WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3523,7 +3523,7 @@ SELECT Id, Name, [Album.Id], Year FROM awards WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3901,7 +3901,7 @@ SELECT Id, [Album.Id], Name, Length FROM songs WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4279,7 +4279,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

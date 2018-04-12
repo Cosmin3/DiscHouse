@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DiskHouseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DiskHouseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DiscHouse.Properties.Settings.GlobalReference.Default.DiskHouseConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DiskHouseDataSet" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DiskHouseDataSet (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DiscHouse.Properties.Settings.GlobalReference.Default.DiskHouseDataSet" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AlbumsTableAdapter" GeneratorDataComponentClassName="AlbumsTableAdapter" Name="Albums" UserDataComponentName="AlbumsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DiskHouseConnectionString (Settings)" DbObjectName="DiskHouse.dbo.Albums" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DiskHouseDataSet (Settings)" DbObjectName="DiskHouse.dbo.Albums" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Albums] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Year] = @Original_Year) AND ([Genre] = @Original_Genre) AND ([Artist.Id] = @p2))</CommandText>
@@ -72,7 +72,7 @@ SELECT Id, Name, Year, Genre, [Artist.Id] FROM Albums WHERE (Id = @Id)</CommandT
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="artistsTableAdapter" GeneratorDataComponentClassName="artistsTableAdapter" Name="artists" UserDataComponentName="artistsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DiskHouseConnectionString (Settings)" DbObjectName="DiskHouse.dbo.artists" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DiskHouseDataSet (Settings)" DbObjectName="DiskHouse.dbo.artists" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[artists] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Members] = @Original_Members))</CommandText>
@@ -128,7 +128,7 @@ SELECT Id, Name, Description, Members FROM artists WHERE (Id = @Id)</CommandText
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="awardsTableAdapter" GeneratorDataComponentClassName="awardsTableAdapter" Name="awards" UserDataComponentName="awardsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DiskHouseConnectionString (Settings)" DbObjectName="DiskHouse.dbo.awards" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DiskHouseDataSet (Settings)" DbObjectName="DiskHouse.dbo.awards" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[awards] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Album.Id] = @p2) AND ([Year] = @Original_Year))</CommandText>
@@ -186,7 +186,7 @@ SELECT Id, Name, [Album.Id], Year FROM awards WHERE (Id = @Id)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="songsTableAdapter" GeneratorDataComponentClassName="songsTableAdapter" Name="songs" UserDataComponentName="songsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DiskHouseConnectionString (Settings)" DbObjectName="DiskHouse.dbo.songs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DiskHouseDataSet (Settings)" DbObjectName="DiskHouse.dbo.songs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[songs] WHERE (([Id] = @Original_Id) AND ([Album.Id] = @p2) AND ([Name] = @Original_Name) AND ([Length] = @Original_Length))</CommandText>
@@ -244,7 +244,7 @@ SELECT Id, [Album.Id], Name, Length FROM songs WHERE (Id = @Id)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="usersTableAdapter" GeneratorDataComponentClassName="usersTableAdapter" Name="users" UserDataComponentName="usersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DiskHouseConnectionString (Settings)" DbObjectName="DiskHouse.dbo.users" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DiskHouseDataSet (Settings)" DbObjectName="DiskHouse.dbo.users" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[users] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Password] = @Original_Password) AND ([Rights] = @Original_Rights))</CommandText>
@@ -321,7 +321,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -329,7 +329,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Genre" msprop:Generator_ColumnVarNameInTable="columnGenre" msprop:Generator_ColumnPropNameInRow="Genre" msprop:Generator_ColumnPropNameInTable="GenreColumn" msprop:Generator_UserColumnName="Genre">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -356,7 +356,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="56" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -370,7 +370,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Members" msprop:Generator_ColumnVarNameInTable="columnMembers" msprop:Generator_ColumnPropNameInRow="Members" msprop:Generator_ColumnPropNameInTable="MembersColumn" msprop:Generator_UserColumnName="Members">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -390,7 +390,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -425,7 +425,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -446,14 +446,14 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)</CommandText>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="56" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="25" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

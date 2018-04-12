@@ -19,11 +19,16 @@ namespace DiscHouse
         private void MainForm_Load(object sender, EventArgs e)
         {
             
-        }
+        } 
 
         void closeForm(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        void showForm(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
