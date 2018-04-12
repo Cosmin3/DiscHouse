@@ -30,9 +30,9 @@ SET time_zone = "+00:00";*/
 
 CREATE TABLE "Albums" (
   "Id" nchar(10) NOT NULL,
-  "Name" varchar(50) NOT NULL,
+  "Name" varchar(150) NOT NULL,
   "Year" date NOT NULL,
-  "Genre" varchar(15) NOT NULL,
+  "Genre" varchar(50) NOT NULL,
   "Artist.Id" nchar(10) NOT NULL
   PRIMARY KEY (Id)
 ) 
@@ -45,9 +45,9 @@ CREATE TABLE "Albums" (
 
 CREATE TABLE "artists" (
   "Id" nchar(10) NOT NULL,
-  "Name" varchar(56) NOT NULL,
+  "Name" varchar(150) NOT NULL,
   "Description" text NOT NULL,
-  "Members" varchar(100) NOT NULL
+  "Members" varchar(200) NOT NULL
   PRIMARY KEY (Id)
 ) 
 
@@ -59,7 +59,7 @@ CREATE TABLE "artists" (
 
 CREATE TABLE "awards" (
   "Id" nchar(10) NOT NULL ,
-  "Name" varchar(50) NOT NULL,
+  "Name" varchar(150) NOT NULL,
   "Album.Id" nchar(10) NOT NULL,
   "Year" date NOT NULL
   PRIMARY KEY(Id)
@@ -74,7 +74,7 @@ CREATE TABLE "awards" (
 CREATE TABLE "songs" (
   "Id" nchar(10) NOT NULL,
   "Album.Id" nchar(10) NOT NULL,
-  "Name" varchar(50) NOT NULL,
+  "Name" varchar(150) NOT NULL,
   "Length" time(5) NOT NULL
   PRIMARY KEY(Id)
 ) 
@@ -86,8 +86,8 @@ CREATE TABLE "songs" (
 
 CREATE TABLE "users" (
   "Id" nchar(10) NOT NULL,
-  "Name" varchar(56) NOT NULL,
-  "Password" varchar(25) NOT NULL,
+  "Name" varchar(150) NOT NULL,
+  "Password" varchar(50) NOT NULL,
   "Rights" nchar(1) NOT NULL
   PRIMARY KEY(Id)
 ) 
