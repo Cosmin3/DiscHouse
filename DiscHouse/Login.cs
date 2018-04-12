@@ -12,6 +12,7 @@ namespace DiscHouse
 {
     public partial class Login : Form
     {
+        DbConnect connect = new DbConnect();
         public Login()
         {
             InitializeComponent();
@@ -19,12 +20,30 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Artists_admin newForm = new Artists_admin();
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            int log;
+            log = connect.CheckLogIn(textBox1.Text, textBox2.Text);
+
+            if (log == -1)
+            {
+                Artists_admin newForm = new Artists_admin();
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
+            else if (log == 1)
+            {
+                Artists_user newForm = new Artists_user();
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
+            else
+                MessageBox.Show("User/Password incorrect");
+            
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {

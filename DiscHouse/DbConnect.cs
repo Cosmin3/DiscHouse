@@ -24,14 +24,14 @@ namespace DiscHouse
             command = connection.CreateCommand();
             command.CommandText = s;
             reader = command.ExecuteReader();
-            if(reader.Read())
+            if (reader.Read())
             {
                 sr = Convert.ToString(reader["Name"]);
                 reader.Close();
                 connection.Close();
                 return sr;
             }
-            
+
             reader.Close();
             connection.Close();
             return null;
@@ -42,9 +42,9 @@ namespace DiscHouse
             int i;
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select Id from artists where Name='"+s+"'";
+            command.CommandText = "Select Id from artists where Name='" + s + "'";
             reader = command.ExecuteReader();
-           if( reader.Read())
+            if (reader.Read())
             {
                 i = Convert.ToInt32(reader["Id"]);
 
@@ -52,7 +52,7 @@ namespace DiscHouse
                 connection.Close();
                 return i;
             }
-            
+
 
             reader.Close();
             connection.Close();
@@ -61,15 +61,15 @@ namespace DiscHouse
         }
         public ArrayList ReadAlbumsForArtist(string s)
         {
-            
+
             ArrayList sr = new ArrayList();
             connection.Open();
             command = connection.CreateCommand();
             command.CommandText = s;
             reader = command.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
-                sr.Add( Convert.ToString(reader["Name"]));
+                sr.Add(Convert.ToString(reader["Name"]));
             }
             reader.Close();
             connection.Close();
@@ -77,8 +77,42 @@ namespace DiscHouse
 
         }
 
+        public int CheckLogIn(string user, string pass)
+        {
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select Name,Password from users";
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if ((Convert.ToString(reader["Name"]) == user) && (Convert.ToString(reader["Password"]) == pass))
+                {
+                    if (user == "admin")
+                    {
+                        reader.Close();
+                        connection.Close();
+                        return -1;
+                    }
+
+                    else
+                    {
+                        reader.Close();
+                        connection.Close();
+                        return 1;
+                    }
+                    
+
+                }
+            }
+            reader.Close();
+            connection.Close();
+            return 0;
+
+        }
 
 
 
     }
+
 }
+
