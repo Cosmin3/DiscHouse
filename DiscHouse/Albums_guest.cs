@@ -14,10 +14,10 @@ namespace DiscHouse
     public partial class Albums_guest : Form
     {
         DbConnect connect = new DbConnect();
-        string nume;
+        string numeArtist;
         public Albums_guest(string nume)
         {
-            this.nume = nume;
+            this.numeArtist = nume;
             InitializeComponent();
             ArrayList list = new ArrayList();
             int id = connect.GetArtistId(nume);
@@ -60,11 +60,14 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = listBox1.SelectedIndex + 1;
+            
             string sr;
-            sr = connect.ReadNameFromArtist("Select name from albums where id=" + Convert.ToString(index));
+            int index = listBox1.SelectedIndex + 1;
+            string numeAlbum = Convert.ToString(  listBox1.SelectedItem);
+           // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
+            
 
-            Album_guest newForm = new Album_guest(this.nume, sr);
+            Album_guest newForm = new Album_guest(this.numeArtist, numeAlbum);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

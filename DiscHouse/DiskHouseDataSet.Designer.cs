@@ -2738,7 +2738,7 @@ SELECT Id, Name, Year, Genre, [Artist.Id] FROM Albums WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3138,7 +3138,7 @@ SELECT Id, Name, Description, Members FROM artists WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3523,7 +3523,7 @@ SELECT Id, Name, [Album.Id], Year FROM awards WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3901,7 +3901,7 @@ SELECT Id, [Album.Id], Name, Length FROM songs WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4279,7 +4279,7 @@ SELECT Id, Name, Password, Rights FROM users WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseDataSet;
+            this._connection.ConnectionString = global::DiscHouse.Properties.Settings.Default.DiskHouseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

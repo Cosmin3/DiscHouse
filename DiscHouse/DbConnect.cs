@@ -37,6 +37,47 @@ namespace DiscHouse
             return null;
 
         }
+
+        public string ReadGenreFromArtist(string s)
+        {
+            string sr;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = s;
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                sr = Convert.ToString(reader["Genre"]);
+                reader.Close();
+                connection.Close();
+                return sr;
+            }
+
+            reader.Close();
+            connection.Close();
+            return null;
+
+        }
+        public string ReadYearFromArtist(string s)
+        {
+            string sr;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = s;
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                sr = Convert.ToString(reader["Year"]);
+                reader.Close();
+                connection.Close();
+                return sr;
+            }
+
+            reader.Close();
+            connection.Close();
+            return null;
+
+        }
         public int GetArtistId(string s)
         {
             int i;
@@ -76,12 +117,12 @@ namespace DiscHouse
             return sr;
         }
 
-        public int GetAlbumId(string s2, string s)
+        public int GetAlbumId(string numeArtist, string numeAlbum)
         {
             int i;
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select Id from albums where Name='" + s + "'";
+            command.CommandText = "Select Id from albums where (Name='" + numeAlbum + "' and [Artist.Id]=(Select Id from Artists where Name='"+numeArtist+"'))";
             reader = command.ExecuteReader();
             if (reader.Read())
             {
@@ -122,14 +163,14 @@ namespace DiscHouse
                         connection.Close();
                         return 1;
                     }
-                    
+
 
                 }
             }
             reader.Close();
             connection.Close();
             return 0;
-
+        }
         public ArrayList ReadSongsForAlbum(string s)
         {
 
@@ -147,7 +188,28 @@ namespace DiscHouse
             return sr;
         }
 
+        public int GetSongId(string s)
+        {
+            int i;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select Id from songs where Name='" + s + "'";
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                i = Convert.ToInt32(reader["Id"]);
 
+                reader.Close();
+                connection.Close();
+                return i;
+            }
+
+
+            reader.Close();
+            connection.Close();
+            return 0;
+
+        }
 
 
 
