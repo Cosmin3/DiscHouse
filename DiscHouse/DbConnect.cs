@@ -74,6 +74,28 @@ namespace DiscHouse
             reader.Close();
             connection.Close();
             return sr;
+        }
+
+        public int GetAlbumId(string s2, string s)
+        {
+            int i;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select Id from albums where Name='" + s + "'";
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                i = Convert.ToInt32(reader["Id"]);
+
+                reader.Close();
+                connection.Close();
+                return i;
+            }
+
+
+            reader.Close();
+            connection.Close();
+            return 0;
 
         }
 
@@ -108,7 +130,24 @@ namespace DiscHouse
             connection.Close();
             return 0;
 
+        public ArrayList ReadSongsForAlbum(string s)
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = s;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
         }
+
+
 
 
 

@@ -22,12 +22,12 @@ namespace DiscHouse
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            Albums_admin newForm = new Albums_admin();
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
