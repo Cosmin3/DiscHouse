@@ -7,10 +7,10 @@
 -- Versiune server: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+/*SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+00:00";*/
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -19,168 +19,139 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `diskhouse`
+-- Database: "diskhouse"
 --
 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `albums`
+-- Structura de tabel pentru tabelul "albums"
 --
 
-CREATE TABLE `albums` (
-  `Id` int(10) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Year` year(4) NOT NULL,
-  `Genre` varchar(15) NOT NULL,
-  `Artist.Id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE "Albums" (
+  "Id" nchar(10) NOT NULL,
+  "Name" varchar(50) NOT NULL,
+  "Year" date NOT NULL,
+  "Genre" varchar(15) NOT NULL,
+  "Artist.Id" nchar(10) NOT NULL
+) 
 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `artists`
+-- Structura de tabel pentru tabelul "artists"
 --
 
-CREATE TABLE `artists` (
-  `Id` int(10) NOT NULL,
-  `Name` varchar(56) NOT NULL,
-  `Description` text NOT NULL,
-  `Members` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE "artists" (
+  "Id" nchar(10) NOT NULL,
+  "Name" varchar(56) NOT NULL,
+  "Description" text NOT NULL,
+  "Members" varchar(100) NOT NULL
+) 
 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `awards`
+-- Structura de tabel pentru tabelul "awards"
 --
 
-CREATE TABLE `awards` (
-  `Id` int(10) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Album.Id` int(10) NOT NULL,
-  `Year` year(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE "awards" (
+  "Id" nchar(10) NOT NULL ,
+  "Name" varchar(50) NOT NULL,
+  "Album.Id" nchar(10) NOT NULL,
+  "Year" date NOT NULL
+)
 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `songs`
+-- Structura de tabel pentru tabelul "songs"
 --
 
-CREATE TABLE `songs` (
-  `Id` int(10) NOT NULL,
-  `Album.Id` int(10) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Length` time(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+CREATE TABLE "songs" (
+  "Id" nchar(10) NOT NULL,
+  "Album.Id" nchar(10) NOT NULL,
+  "Name" varchar(50) NOT NULL,
+  "Length" time(5) NOT NULL
+) 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `users`
+-- Structura de tabel pentru tabelul "users"
 --
 
-CREATE TABLE `users` (
-  `Id` int(10) NOT NULL,
-  `Name` varchar(56) NOT NULL,
-  `Password` varchar(25) NOT NULL,
-  `Rights` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+CREATE TABLE "users" (
+  "Id" nchar(10) NOT NULL,
+  "Name" varchar(56) NOT NULL,
+  "Password" varchar(25) NOT NULL,
+  "Rights" nchar(1) NOT NULL
+) 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `albums`
+-- Indexes for table "albums"
 --
-ALTER TABLE `albums`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `artistId` (`Artist.Id`);
+ALTER TABLE "albums"
+  ADD PRIMARY KEY ("ID"),
+  UNIQUE ("Artist.Id");
 
 --
--- Indexes for table `artists`
+-- Indexes for table "artists"
 --
-ALTER TABLE `artists`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE "artists"
+  ADD PRIMARY KEY ("Id");
 
 --
--- Indexes for table `awards`
+-- Indexes for table "awards"
 --
-ALTER TABLE `awards`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Album.Id` (`Album.Id`);
+ALTER TABLE "awards"
+  ADD PRIMARY KEY ("Id"),
+  Unique ("Album.Id");
 
 --
--- Indexes for table `songs`
+-- Indexes for table "songs"
 --
-ALTER TABLE `songs`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Album.Id` (`Album.Id`);
+ALTER TABLE "songs"
+  ADD PRIMARY KEY ("Id"),
+  unique ("Album.Id");
 
 --
--- Indexes for table `users`
+-- Indexes for table "users"
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE "users"
+  ADD PRIMARY KEY ("Id");
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `albums`
---
-ALTER TABLE `albums`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
-
-
--- AUTO_INCREMENT for table `artists`
---
-ALTER TABLE `artists`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `songs`
---
-ALTER TABLE `songs`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrictii pentru tabele sterse
 --
 
 --
--- Restrictii pentru tabele `albums`
+-- Restrictii pentru tabele "albums"
 --
-ALTER TABLE `albums`
-  ADD CONSTRAINT `albums_ibfk_1` FOREIGN KEY (`Artist.Id`) REFERENCES `artists` (`Id`) ON UPDATE CASCADE;
+ALTER TABLE "albums"
+  ADD CONSTRAINT "albums_ibfk_1" FOREIGN KEY ("Artist.Id") REFERENCES "artists" ("Id") ON UPDATE CASCADE;
 
 --
--- Restrictii pentru tabele `artists`
+-- Restrictii pentru tabele "artists"
 --
-ALTER TABLE `artists`
-  ADD CONSTRAINT `artists_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `users` (`Id`) ON UPDATE CASCADE;
+ALTER TABLE "artists"
+  ADD CONSTRAINT "artists_ibfk_1" FOREIGN KEY ("Id") REFERENCES "users" ("Id") ON UPDATE CASCADE;
 
 --
--- Restrictii pentru tabele `awards`
+-- Restrictii pentru tabele "awards"
 --
-ALTER TABLE `awards`
-  ADD CONSTRAINT `awards_ibfk_1` FOREIGN KEY (`Album.Id`) REFERENCES `albums` (`Id`) ON UPDATE CASCADE;
+ALTER TABLE "awards"
+  ADD CONSTRAINT "awards_ibfk_1" FOREIGN KEY ("Album.Id") REFERENCES "albums" ("Id") ON UPDATE CASCADE;
 
 --
--- Restrictii pentru tabele `songs`
+-- Restrictii pentru tabele "songs"
 --
-ALTER TABLE `songs`
-  ADD CONSTRAINT `songs_ibfk_1` FOREIGN KEY (`Album.Id`) REFERENCES `albums` (`Id`) ON UPDATE CASCADE;
-COMMIT;
+ALTER TABLE "songs"
+  ADD CONSTRAINT "songs_ibfk_1" FOREIGN KEY ("Album.Id") REFERENCES "albums" ("Id") ON UPDATE CASCADE;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
