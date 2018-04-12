@@ -19,7 +19,7 @@ namespace DiscHouse
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Albums_guest newForm = new Albums_guest();
+            Albums_guest newForm = new Albums_guest("");
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

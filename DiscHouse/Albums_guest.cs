@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,22 @@ namespace DiscHouse
 {
     public partial class Albums_guest : Form
     {
-        public Albums_guest()
+        DbConnect connect = new DbConnect();
+        public Albums_guest(string nume)
         {
+            
             InitializeComponent();
+            ArrayList list = new ArrayList();
+            int id = connect.GetArtistId(nume);
+            list = connect.ReadAlbumsForArtist("Select Name from Albums where [Artist.Id]="+Convert.ToString(id));
+            listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            foreach(string slist in list)
+            {
+                listBox1.Items.Add(slist);
+            }
+            
+
         }
 
         private void Albums_guest_Load(object sender, EventArgs e)
@@ -33,6 +47,19 @@ namespace DiscHouse
             newForm.Show();
             newForm.Left = this.Left;
             newForm.Top = this.Top;
+        }
+
+        private void Albums_guest_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'diskHouseDataSet.Albums' table. You can move, or remove it, as needed.
+            this.albumsTableAdapter.Fill(this.diskHouseDataSet.Albums);
+            
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,7 +16,7 @@ namespace DiscHouse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Albums_admin());
+            Application.Run(new MainForm());
         }
     }
 }
