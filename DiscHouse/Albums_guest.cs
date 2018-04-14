@@ -20,7 +20,10 @@ namespace DiscHouse
             this.numeArtist = nume;
             InitializeComponent();
             ArrayList list = new ArrayList();
+
             int id = connect.GetArtistId(nume);
+
+
             list = connect.ReadAlbumsForArtist("Select Name from Albums where [Artist.Id]="+Convert.ToString(id));
             listBox1.DataSource = null;
             listBox1.Items.Clear();
@@ -61,7 +64,7 @@ namespace DiscHouse
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            string sr;
+            
             int index = listBox1.SelectedIndex + 1;
             string numeAlbum = Convert.ToString(  listBox1.SelectedItem);
            // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));

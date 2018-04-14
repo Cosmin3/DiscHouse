@@ -28,16 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
+            this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.albumsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.AlbumsTableAdapter();
+            this.albumsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.artistsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artistsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.artistsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
             // 
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.DataSource = this.artistsBindingSource;
+            this.listBox1.DisplayMember = "Name";
             this.listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
@@ -46,6 +59,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(506, 530);
             this.listBox1.TabIndex = 0;
+            this.listBox1.ValueMember = "Name";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button2
@@ -98,6 +112,34 @@
             this.textBox1.Size = new System.Drawing.Size(225, 22);
             this.textBox1.TabIndex = 5;
             // 
+            // diskHouseDataSet
+            // 
+            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
+            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // albumsBindingSource
+            // 
+            this.albumsBindingSource.DataMember = "Albums";
+            this.albumsBindingSource.DataSource = this.diskHouseDataSet;
+            // 
+            // albumsTableAdapter
+            // 
+            this.albumsTableAdapter.ClearBeforeFill = true;
+            // 
+            // albumsBindingSource1
+            // 
+            this.albumsBindingSource1.DataMember = "Albums";
+            this.albumsBindingSource1.DataSource = this.diskHouseDataSet;
+            // 
+            // artistsBindingSource
+            // 
+            this.artistsBindingSource.DataMember = "artists";
+            this.artistsBindingSource.DataSource = this.diskHouseDataSet;
+            // 
+            // artistsTableAdapter
+            // 
+            this.artistsTableAdapter.ClearBeforeFill = true;
+            // 
             // Artists_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -115,6 +157,11 @@
             this.MaximizeBox = false;
             this.Name = "Artists_admin";
             this.Text = "Artists";
+            this.Load += new System.EventHandler(this.Artists_admin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +174,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox1;
+        private DiskHouseDataSet diskHouseDataSet;
+        private System.Windows.Forms.BindingSource albumsBindingSource;
+        private DiskHouseDataSetTableAdapters.AlbumsTableAdapter albumsTableAdapter;
+        private System.Windows.Forms.BindingSource albumsBindingSource1;
+        private System.Windows.Forms.BindingSource artistsBindingSource;
+        private DiskHouseDataSetTableAdapters.artistsTableAdapter artistsTableAdapter;
     }
 }

@@ -37,7 +37,7 @@ namespace DiscHouse
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           Albums_admin newForm = new Albums_admin();
+           Albums_user newForm = new Albums_user();
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

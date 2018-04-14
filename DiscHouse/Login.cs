@@ -59,7 +59,9 @@ namespace DiscHouse
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        
+
+            private void button2_Click(object sender, EventArgs e)
         {
             MainForm newForm = new MainForm();
             newForm.FormClosed += new FormClosedEventHandler(closeForm);

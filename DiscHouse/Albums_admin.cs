@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,24 @@ namespace DiscHouse
 {
     public partial class Albums_admin : Form
     {
-        public Albums_admin()
+        DbConnect connect = new DbConnect();
+        string numeArtist;
+        public Albums_admin(string numeArtist)
         {
+            this.numeArtist = numeArtist;
             InitializeComponent();
+            ArrayList list = new ArrayList();
+
+            int id = connect.GetArtistId(numeArtist);
+
+
+            list = connect.ReadAlbumsForArtist("Select Name from Albums where [Artist.Id]=" + Convert.ToString(id));
+            listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            foreach (string slist in list)
+            {
+                listBox1.Items.Add(slist);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -39,7 +55,17 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int index = listBox1.SelectedIndex + 1;
+            string numeAlbum = Convert.ToString(listBox1.SelectedItem);
+            // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
 
+
+            Album_Admin newForm = new Album_Admin(this.numeArtist, numeAlbum);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {
@@ -47,7 +73,7 @@ namespace DiscHouse
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            Artists_user newForm = new Artists_user();
+            Artists_admin newForm = new Artists_admin();
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();
@@ -63,6 +89,11 @@ namespace DiscHouse
             newForm.Show();
             newForm.Left = this.Left;
             newForm.Top = this.Top;
+        }
+
+        private void Albums_admin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
