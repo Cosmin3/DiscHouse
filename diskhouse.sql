@@ -29,11 +29,11 @@ SET time_zone = "+00:00";*/
 --
 
 CREATE TABLE "Albums" (
-  "Id" nchar(10) NOT NULL,
+  "Id" int NOT NULL IDENTITY(1,1),
   "Name" varchar(150) NOT NULL,
   "Year" date NOT NULL,
   "Genre" varchar(50) NOT NULL,
-  "Artist.Id" nchar(10) NOT NULL
+  "Artist.Id" int NOT NULL 
   PRIMARY KEY (Id)
 ) 
 
@@ -44,10 +44,11 @@ CREATE TABLE "Albums" (
 --
 
 CREATE TABLE "artists" (
-  "Id" nchar(10) NOT NULL,
+  "Id" int NOT NULL IDENTITY(1,1),
   "Name" varchar(150) NOT NULL,
   "Description" text NOT NULL,
-  "Members" varchar(200) NOT NULL
+  "Members" varchar(200) NOT NULL,
+  "userid" int not null
   PRIMARY KEY (Id)
 ) 
 
@@ -58,9 +59,9 @@ CREATE TABLE "artists" (
 --
 
 CREATE TABLE "awards" (
-  "Id" nchar(10) NOT NULL ,
+  "Id" int NOT NULL IDENTITY(1,1),
   "Name" varchar(150) NOT NULL,
-  "Album.Id" nchar(10) NOT NULL,
+  "Album.Id" int NOT NULL,
   "Year" date NOT NULL
   PRIMARY KEY(Id)
 )
@@ -72,8 +73,8 @@ CREATE TABLE "awards" (
 --
 
 CREATE TABLE "songs" (
-  "Id" nchar(10) NOT NULL,
-  "Album.Id" nchar(10) NOT NULL,
+  "Id" int NOT NULL IDENTITY(1,1),
+  "Album.Id" INT NOT NULL,
   "Name" varchar(150) NOT NULL,
   "Length" time(5) NOT NULL
   PRIMARY KEY(Id)
@@ -85,7 +86,7 @@ CREATE TABLE "songs" (
 --
 
 CREATE TABLE "users" (
-  "Id" nchar(10) NOT NULL,
+  "Id" int NOT NULL IDENTITY(1,1),
   "Name" varchar(150) NOT NULL,
   "Password" varchar(50) NOT NULL,
   "Rights" nchar(1) NOT NULL
@@ -101,7 +102,7 @@ ALTER TABLE "albums"
 -- Restrictii pentru tabele "artists"
 --
 ALTER TABLE "artists"
-  ADD CONSTRAINT "artists_ibfk_1" FOREIGN KEY ("Id") REFERENCES "users" ("Id") ON UPDATE CASCADE;
+  ADD CONSTRAINT "artists_ibfk_1" FOREIGN KEY ("userid") REFERENCES "users" ("Id") ON UPDATE CASCADE;
 
 --
 -- Restrictii pentru tabele "awards"
