@@ -10,7 +10,8 @@ SET ARITHABORT, ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, QUOTED_IDE
 SET NUMERIC_ROUNDABORT, IMPLICIT_TRANSACTIONS, XACT_ABORT OFF
 GO
 
-INSERT Diskhouse.dbo.users(Id, Name, Password, Rights) VALUES (N'1', N'LP', N'rock', N'2')
-INSERT Diskhouse.dbo.users(Id, Name, Password, Rights) VALUES (N'2', N'admin', N'admin', N'1')
-INSERT Diskhouse.dbo.users(Id, Name, Password, Rights) VALUES (N'3', N'guest', N'guest', N'3')
+INSERT Diskhouse.dbo.users( Name, Password, Rights) VALUES ( N'LP', N'rock', N'2')
+INSERT Diskhouse.dbo.users( Name, Password, Rights) VALUES ( N'admin', N'admin', N'1')
+INSERT Diskhouse.dbo.users( Name, Password, Rights) VALUES ( N'guest', N'guest', N'3')
+INSERT Diskhouse.dbo.users( Name, Password, Rights) VALUES ( N'para', N'rap', N'4')
 GO
