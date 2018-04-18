@@ -10,6 +10,7 @@ SET ARITHABORT, ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, QUOTED_IDE
 SET NUMERIC_ROUNDABORT, IMPLICIT_TRANSACTIONS, XACT_ABORT OFF
 GO
 
-INSERT Diskhouse.dbo.songs(Id, [Album.Id], Name, Length) VALUES (N'1', N'1', N'Somewhere I belong', '00:03:07')
-INSERT Diskhouse.dbo.songs(Id, [Album.Id], Name, Length) VALUES (N'2', N'2', N'Instrumental', '00:02:32')
+INSERT Diskhouse.dbo.songs([Album.Id], Name, Length) VALUES ( N'1', N'Somewhere I belong', '00:03:07')
+INSERT Diskhouse.dbo.songs([Album.Id], Name, Length) VALUES ( N'2', N'Instrumental', '00:02:32')
+INSERT Diskhouse.dbo.songs([Album.Id], Name, Length) VALUES ( N'3', N'Parol', '00:04:54')
 GO

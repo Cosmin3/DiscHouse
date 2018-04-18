@@ -10,6 +10,6 @@ SET ARITHABORT, ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, QUOTED_IDE
 SET NUMERIC_ROUNDABORT, IMPLICIT_TRANSACTIONS, XACT_ABORT OFF
 GO
 
-INSERT Diskhouse.dbo.artists(Id, Name, Description, Members) VALUES (N'1', N'Linkin Park', N'Rock band', N'Chester,')
-INSERT Diskhouse.dbo.artists(Id, Name, Description, Members) VALUES (N'2', N'Parazitii', N'Rap ', N'Cheloo')
+INSERT Diskhouse.dbo.artists(Name, Description, Members,userid) VALUES (N'Linkin Park', N'Rock band', N'Chester,',N'1')
+INSERT Diskhouse.dbo.artists(Name, Description, Members,userid) VALUES (N'Parazitii', N'Rap ', N'Cheloo, Ombladon, FDD',N'4')
 GO

@@ -10,6 +10,7 @@ SET ARITHABORT, ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, QUOTED_IDE
 SET NUMERIC_ROUNDABORT, IMPLICIT_TRANSACTIONS, XACT_ABORT OFF
 GO
 
-INSERT Diskhouse.dbo.Albums(Id, Name, Year, Genre, [Artist.Id]) VALUES (N'1', N'Meteora', '2000-01-01', N'alt metal', N'1')
-INSERT Diskhouse.dbo.Albums(Id, Name, Year, Genre, [Artist.Id]) VALUES (N'2', N'Categoria Grea', '2001-01-02', N'rap', N'2')
+INSERT Diskhouse.dbo.Albums(Name, Year, Genre, [Artist.Id]) VALUES (N'Meteora', '2000-01-01', N'alt metal', N'1')
+INSERT Diskhouse.dbo.Albums(Name, Year, Genre, [Artist.Id]) VALUES (N'Categoria Grea', '2001-01-02', N'rap', N'2')
+INSERT Diskhouse.dbo.Albums(Name, Year, Genre, [Artist.Id]) VALUES (N'Tot ce e bun tre sa dispara', '2010-01-02', N'rap', N'2')
 GO
