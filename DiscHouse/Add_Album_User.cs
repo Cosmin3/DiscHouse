@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace DiscHouse
 {
-    public partial class Albums_user : Form
+    public partial class Add_Album_User : Form
     {
-        public Albums_user()
+        public Add_Album_User()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Albums_user_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

@@ -34,6 +34,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBox1
@@ -54,13 +55,14 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(645, 103);
+            this.button1.Location = new System.Drawing.Point(645, 142);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(225, 51);
             this.button1.TabIndex = 1;
             this.button1.Text = "Add Album";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -69,7 +71,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(645, 229);
+            this.button2.Location = new System.Drawing.Point(645, 250);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(225, 51);
@@ -119,13 +121,21 @@
             this.button5.Text = "Back";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // Albums_admin
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(645, 68);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(225, 22);
+            this.textBox1.TabIndex = 7;
+            // 
+            // Albums_user
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DiscHouse.Properties.Resources.Funky2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(981, 562);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -135,9 +145,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "Albums_admin";
+            this.Name = "Albums_user";
             this.Text = "Albums";
+            this.Load += new System.EventHandler(this.Albums_user_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,5 +161,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

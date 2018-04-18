@@ -21,7 +21,7 @@ namespace DiscHouse
             InitializeComponent();
             ArrayList list = new ArrayList();
             int id = connect.GetAlbumId(numeArtist, numeAlbum);
-            list = connect.ReadSongsForAlbum("Select Name from Songs where [Album.Id]=" + Convert.ToString(id));
+            list = connect.ReadSongsForAlbum(Convert.ToString(id));
             listBox1.DataSource = null;
             listBox1.Items.Clear();
             foreach (string slist in list)

@@ -45,7 +45,7 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Add_Album newForm = new Add_Album();
+            Add_Album newForm = new Add_Album(this.numeArtist);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

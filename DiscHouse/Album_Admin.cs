@@ -15,14 +15,15 @@ namespace DiscHouse
     {
         DbConnect connect = new DbConnect();
         string numeArtist;
-
+        string numeAlbum;
         public Album_Admin(string numeArtist, string numeAlbum)
         {
             this.numeArtist = numeArtist;
+            this.numeAlbum = numeAlbum;
             InitializeComponent();
             ArrayList list = new ArrayList();
             int id = connect.GetAlbumId(numeArtist, numeAlbum);
-            list = connect.ReadSongsForAlbum("Select Name from Songs where [Album.Id]=" + Convert.ToString(id));
+            list = connect.ReadSongsForAlbum(Convert.ToString(id));
             listBox1.DataSource = null;
             listBox1.Items.Clear();
             foreach (string slist in list)
@@ -55,6 +56,26 @@ namespace DiscHouse
         void closeForm(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MainForm newForm = new MainForm();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Add_Song newForm = new Add_Song(this.numeArtist, this.numeAlbum);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
     }
 }

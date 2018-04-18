@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -47,7 +49,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(358, 360);
+            this.button1.Location = new System.Drawing.Point(358, 436);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(297, 54);
             this.button1.TabIndex = 0;
@@ -135,12 +137,34 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Registration Code";
             // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Georgia", 12F);
+            this.textBox4.Location = new System.Drawing.Point(358, 341);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(297, 30);
+            this.textBox4.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Georgia", 12F);
+            this.label4.ForeColor = System.Drawing.SystemColors.Menu;
+            this.label4.Location = new System.Drawing.Point(148, 347);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 24);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Artist/Band Name";
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DiscHouse.Properties.Resources.main_background;
             this.ClientSize = new System.Drawing.Size(982, 563);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -168,5 +192,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label4;
     }
 }

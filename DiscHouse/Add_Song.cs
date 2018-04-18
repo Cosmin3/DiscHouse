@@ -10,10 +10,17 @@ using System.Windows.Forms;
 
 namespace DiscHouse
 {
+
     public partial class Add_Song : Form
     {
-        public Add_Song()
+        string numeArtist;
+        string numeAlbum;
+        DbConnect connect = new DbConnect();
+
+        public Add_Song(string numeArtist,string numeAlbum)
         {
+            this.numeAlbum = numeAlbum;
+            this.numeArtist = numeArtist;
             InitializeComponent();
         }
 
@@ -24,25 +31,32 @@ namespace DiscHouse
 
         private void button4_Click(object sender, EventArgs e)
         {
-            /*Albums_admin newForm = new Albums_admin();
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;*/
-        }
-        void closeForm(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Add_Album newForm = new Add_Album();
+            Albums_admin newForm = new Albums_admin(this.numeArtist);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();
             newForm.Left = this.Left;
             newForm.Top = this.Top;
+        }
+        void closeForm(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int albumId = connect.GetAlbumId(this.numeArtist, this.numeAlbum);
+            TimeSpan time;
+            int t = 60*Convert.ToInt32(textBox2.Text) + Convert.ToInt32(textBox3.Text);
+            time = TimeSpan.FromSeconds(t);
+            connect.AddSong(textBox1.Text, time , albumId);
+            MessageBox.Show("Song Added");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

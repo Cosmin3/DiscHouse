@@ -36,7 +36,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(745, 407);
+            this.button4.Location = new System.Drawing.Point(745, 474);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(225, 51);
             this.button4.TabIndex = 4;
@@ -68,6 +70,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -82,6 +85,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Remove";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -110,10 +114,10 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(183, 134);
+            this.textBox2.Location = new System.Drawing.Point(259, 134);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(380, 30);
+            this.textBox2.Size = new System.Drawing.Size(97, 30);
             this.textBox2.TabIndex = 10;
             // 
             // textBox1
@@ -128,6 +132,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -141,20 +148,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button3
+            // label3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.BorderSize = 4;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(745, 474);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(225, 51);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Back";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Georgia", 12F);
+            this.label3.ForeColor = System.Drawing.SystemColors.Menu;
+            this.label3.Location = new System.Drawing.Point(205, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 24);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Min";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(466, 137);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(97, 30);
+            this.textBox3.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Georgia", 12F);
+            this.label4.ForeColor = System.Drawing.SystemColors.Menu;
+            this.label4.Location = new System.Drawing.Point(419, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 24);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Sec";
             // 
             // Add_Song
             // 
@@ -163,7 +188,6 @@
             this.BackgroundImage = global::DiscHouse.Properties.Resources.Bg3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 563);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -188,6 +212,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
     }
 }

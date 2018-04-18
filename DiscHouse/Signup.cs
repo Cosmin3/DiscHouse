@@ -37,12 +37,13 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Artists_user newForm = new Artists_user();
+           /* Artists_user newForm = new Artists_user();
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();
             newForm.Left = this.Left;
             newForm.Top = this.Top;
+            */
         }
     }
 }

@@ -12,8 +12,11 @@ namespace DiscHouse
 {
     public partial class Add_Album : Form
     {
-        public Add_Album()
+        DbConnect connect = new DbConnect();
+        string artistName;
+        public Add_Album(string nume)
         {
+            this.artistName = nume;
             InitializeComponent();
         }
 
@@ -27,7 +30,11 @@ namespace DiscHouse
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Add_Song newForm = new Add_Song();
+            int artistId = connect.GetArtistId(this.artistName);
+            
+            connect.AddAlbum(textBox1.Text, Convert.ToDateTime(textBox3.Text),textBox4.Text, artistId);
+
+            Add_Song newForm = new Add_Song(this.artistName, textBox1.Text);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();
@@ -36,6 +43,16 @@ namespace DiscHouse
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+            Albums_admin newForm = new Albums_admin(this.artistName);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
+
+        private void Add_Album_Load(object sender, EventArgs e)
         {
 
         }

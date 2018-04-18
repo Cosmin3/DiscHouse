@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.artistsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
             this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.albumsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.AlbumsTableAdapter();
             this.albumsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.artistsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.artistsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -62,6 +62,16 @@
             this.listBox1.ValueMember = "Name";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // artistsBindingSource
+            // 
+            this.artistsBindingSource.DataMember = "artists";
+            this.artistsBindingSource.DataSource = this.diskHouseDataSet;
+            // 
+            // diskHouseDataSet
+            // 
+            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
+            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -75,6 +85,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -112,11 +123,6 @@
             this.textBox1.Size = new System.Drawing.Size(225, 22);
             this.textBox1.TabIndex = 5;
             // 
-            // diskHouseDataSet
-            // 
-            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
-            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // albumsBindingSource
             // 
             this.albumsBindingSource.DataMember = "Albums";
@@ -130,11 +136,6 @@
             // 
             this.albumsBindingSource1.DataMember = "Albums";
             this.albumsBindingSource1.DataSource = this.diskHouseDataSet;
-            // 
-            // artistsBindingSource
-            // 
-            this.artistsBindingSource.DataMember = "artists";
-            this.artistsBindingSource.DataSource = this.diskHouseDataSet;
             // 
             // artistsTableAdapter
             // 
@@ -158,10 +159,10 @@
             this.Name = "Artists_admin";
             this.Text = "Artists";
             this.Load += new System.EventHandler(this.Artists_admin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,6 +13,7 @@ namespace DiscHouse
     {
         SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-K2DSFB8\SQLEXPRESS; Initial Catalog=DiskHouse;Integrated Security=True");
         SqlCommand command;
+        SqlCommandBuilder commandBuilder;
         SqlDataReader reader;
         SqlDataAdapter adapter;
 
@@ -78,12 +79,12 @@ namespace DiscHouse
             return null;
 
         }
-        public int GetArtistId(string s)
+        public int GetArtistId(string numeArtist)
         {
             int i;
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select Id from artists where Name='" + s + "'";
+            command.CommandText = "Select Id from artists where Name='" + numeArtist + "'";
             reader = command.ExecuteReader();
             if (reader.Read())
             {
@@ -144,13 +145,13 @@ namespace DiscHouse
         {
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select Name,Password from users";
+            command.CommandText = "Select Name,Password,Rights from users";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
                 if ((Convert.ToString(reader["Name"]) == user) && (Convert.ToString(reader["Password"]) == pass))
                 {
-                    if (user == "admin")
+                    if (Convert.ToInt32(reader["Rights"]) == 1)
                     {
                         reader.Close();
                         connection.Close();
@@ -171,29 +172,29 @@ namespace DiscHouse
             connection.Close();
             return 0;
         }
-        public ArrayList ReadSongsForAlbum(string s)
+        public ArrayList ReadSongsForAlbum(string i)
         {
 
             ArrayList sr = new ArrayList();
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = s;
+            command.CommandText = "Select Name,Length from Songs where [Album.Id]="+i;
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                sr.Add(Convert.ToString(reader["Name"]));
+                sr.Add(Convert.ToString(reader["Name"]+"....."+reader["Length"]));
             }
             reader.Close();
             connection.Close();
             return sr;
         }
 
-        public int GetSongId(string s)
+        public int GetSongId(string songName)
         {
             int i;
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select Id from songs where Name='" + s + "'";
+            command.CommandText = "Select Id from songs where Name='" + songName + "'";
             reader = command.ExecuteReader();
             if (reader.Read())
             {
@@ -211,8 +212,66 @@ namespace DiscHouse
 
         }
 
+      /*  public void AddUser(string numeArtist,string pass)
+        {
+            command.CommandText = "Insert into users";
+        }*/
+
+        public void AddAlbum(string albumName,DateTime year,string genre, int artistId)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM albums", connection);
+            commandBuilder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Albums");
+            DataRow dataRow = dataSet.Tables["Albums"].NewRow();
+            dataRow["Name"] = albumName;
+            dataRow["Year"] = year;
+            dataRow["Genre"] = genre;
+            dataRow["Artist.Id"] = artistId;
+            dataSet.Tables["Albums"].Rows.Add(dataRow);
+            try
+            {
+                adapter.Update(dataSet, "Albums");
+                
+                
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(" Nu am putut actualiza baza de date: " + ex.Message);
+            }
 
 
+            //command.CommandText = "Insert into Albums(Name,Year,Genre,[Artist.Id]) Values ('"+albumName+"',"+year+",'"+genre+"',"+artistId+")";
+
+        }
+
+        public void AddSong(string songName,TimeSpan time,int albumId)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM songs", connection);
+            commandBuilder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Songs");
+            DataRow dataRow = dataSet.Tables["Songs"].NewRow();
+            dataRow["Name"] = songName;
+            dataRow["Length"] = time;
+            dataRow["Album.Id"] = albumId;
+            dataSet.Tables["songs"].Rows.Add(dataRow);
+            try
+            {
+                adapter.Update(dataSet, "songs");
+
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(" Nu am putut actualiza baza de date: " + ex.Message);
+            }
+        }
+
+        public void DeleteSong(int songIndex)
+        {
+
+        }
     }
 
 }

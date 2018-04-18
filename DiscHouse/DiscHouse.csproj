@@ -51,11 +51,23 @@
     <Compile Include="Add_Album.Designer.cs">
       <DependentUpon>Add_Album.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_Album_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Album_User.Designer.cs">
+      <DependentUpon>Add_Album_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_Song.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Add_Song.Designer.cs">
       <DependentUpon>Add_Song.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Song_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Song_User.Designer.cs">
+      <DependentUpon>Add_Song_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Album.cs">
       <SubType>Form</SubType>
@@ -151,6 +163,9 @@
     <EmbeddedResource Include="Add_Album.resx">
       <DependentUpon>Add_Album.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Album_User.resx">
+      <DependentUpon>Add_Album_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_Song.resx">
       <DependentUpon>Add_Song.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Albums_guest.resx">
       <DependentUpon>Albums_guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Albums_user.resx">
+      <DependentUpon>Albums_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Album_Admin.resx">
       <DependentUpon>Album_Admin.cs</DependentUpon>
