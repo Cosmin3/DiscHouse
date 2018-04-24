@@ -1,6 +1,6 @@
 ﻿namespace DiscHouse
 {
-    partial class Add_Album
+    partial class Update_Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(225, 51);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Next";
+            this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -148,9 +148,8 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Back";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Add_Album
+            // Update_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,9 +162,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Add_Album";
-            this.Text = "Add Album";
-            this.Load += new System.EventHandler(this.Add_Album_Load);
+            this.Name = "Update_Admin";
+            this.Text = "Update";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

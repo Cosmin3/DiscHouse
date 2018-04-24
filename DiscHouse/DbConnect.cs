@@ -117,6 +117,22 @@ namespace DiscHouse
             connection.Close();
             return sr;
         }
+        public ArrayList ReadAlbums()
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select name from albums";
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
 
         public int GetAlbumId(string numeArtist, string numeAlbum)
         {
@@ -344,7 +360,36 @@ namespace DiscHouse
 
         }
 
+        public void UpdateAlbum(string numeAlbum, string genre, string year,ArrayList list,string numeAlbumVechi)
+        {
+            int row = 0;
+            int ok = 0;
+            foreach(string slist in list)
+            {
+                if (numeAlbumVechi == slist)
+                    ok = 1;
+                if (numeAlbumVechi != slist && ok == 0)
+                    row++;
+                
+                
+            }
 
+            adapter = new SqlDataAdapter("Select * from Albums", connection);
+
+
+            builder = new SqlCommandBuilder(adapter);
+            DataSet dataset = new DataSet();
+
+            adapter.Fill(dataset, "Albums");
+           
+            dataset.Tables["Albums"].Rows[row]["Name"] = numeAlbum;
+            dataset.Tables["Albums"].Rows[row]["Year"] = Convert.ToDateTime(year);
+            dataset.Tables["Albums"].Rows[row]["Genre"] = genre;
+            adapter.Update(dataset, "Albums");
+            
+            connection.Close();
+            
+        }
     }
 
 }

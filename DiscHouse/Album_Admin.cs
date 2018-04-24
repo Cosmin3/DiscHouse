@@ -32,8 +32,8 @@ namespace DiscHouse
                 listBox1.Items.Add(slist);
             }
 
-            label4.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
-            label5.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
+            label5.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
+            label4.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
             // string awards = connect.ReadNameFromArtist("Select Name from awards where [Album.id]=" + Convert.ToString(index));
 
 
@@ -148,6 +148,17 @@ namespace DiscHouse
                 listBox1.Items.Add(slist);
             }
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+           
+            Update_Admin newForm = new Update_Admin(this.numeAlbum, label4.Text, label5.Text,this.numeArtist);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
     }
 }
