@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,42 @@ namespace DiscHouse
 {
     public partial class Artists_user : Form
     {
-        public Artists_user()
+        DbConnect connect = new DbConnect();
+        string loggedArtist;
+
+        public Artists_user(string loggedArtist)
         {
+            this.loggedArtist = loggedArtist;
             InitializeComponent();
+
+            ArrayList list = new ArrayList();
+
+            list = connect.ReadArtists();
+
+
+           
+            listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            foreach (string slist in list)
+            {
+                listBox1.Items.Add(slist);
+            }
         }
-        void closeForm(object sender, FormClosedEventArgs e)
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Close();
+            int index = listBox1.SelectedIndex + 1;
+            string sr;
+            sr = connect.ReadNameFromArtist("Select name from artists where id=" + Convert.ToString(index));
+
+            Albums_user newForm = new Albums_user(sr, this.loggedArtist);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
+
         private void button4_Click(object sender, EventArgs e)
         {
             MainForm newForm = new MainForm();
@@ -29,10 +58,9 @@ namespace DiscHouse
             newForm.Left = this.Left;
             newForm.Top = this.Top;
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        void closeForm(object sender, FormClosedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

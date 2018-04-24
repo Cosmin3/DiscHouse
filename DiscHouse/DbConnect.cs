@@ -133,6 +133,22 @@ namespace DiscHouse
             connection.Close();
             return sr;
         }
+        public ArrayList ReadArtists()
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select name from artists";
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
 
         public int GetAlbumId(string numeArtist, string numeAlbum)
         {
@@ -389,6 +405,27 @@ namespace DiscHouse
             
             connection.Close();
             
+        }
+
+        public string ArtistForUser(string user)
+        {
+            string sr;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select Name from Artists where userid=(Select id from users where name='"+user+"')";
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                sr = Convert.ToString(reader["Name"]);
+                reader.Close();
+                connection.Close();
+                return sr;
+            }
+
+            reader.Close();
+            connection.Close();
+            return null;
+
         }
     }
 

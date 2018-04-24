@@ -34,7 +34,7 @@ namespace DiscHouse
             }
             else if (log == 1)
             {
-                Artists_user newForm = new Artists_user();
+                Artists_user newForm = new Artists_user(connect.ArtistForUser(textBox1.Text));
                 newForm.FormClosed += new FormClosedEventHandler(closeForm);
                 this.Hide();
                 newForm.Show();

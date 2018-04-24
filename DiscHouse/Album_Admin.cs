@@ -160,5 +160,10 @@ namespace DiscHouse
             newForm.Left = this.Left;
             newForm.Top = this.Top;
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

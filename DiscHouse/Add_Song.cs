@@ -56,7 +56,7 @@ namespace DiscHouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            connect.DeleteSong(connect.GetSongId(textBox1.Text));
         }
     }
 }
