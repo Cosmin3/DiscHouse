@@ -70,5 +70,10 @@ namespace DiscHouse
             newForm.Left = this.Left;
             newForm.Top = this.Top;
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -134,6 +134,7 @@
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Log In";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

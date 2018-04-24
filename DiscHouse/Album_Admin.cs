@@ -16,6 +16,7 @@ namespace DiscHouse
         DbConnect connect = new DbConnect();
         string numeArtist;
         string numeAlbum;
+
         public Album_Admin(string numeArtist, string numeAlbum)
         {
             this.numeArtist = numeArtist;
@@ -76,6 +77,77 @@ namespace DiscHouse
             newForm.Show();
             newForm.Left = this.Left;
             newForm.Top = this.Top;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ArrayList list = new ArrayList();
+            int id = connect.GetAlbumId(numeArtist, numeAlbum);
+            list = connect.ReadSongsForAlbum(Convert.ToString(id));
+            foreach (string slist in list)
+            {
+                string s1 = Convert.ToString(slist);
+                int ok1 = 1;
+                string s2 = "";
+                for (int i = 0; i < s1.Length && ok1 == 1; i++)
+                {
+                    if (s1[i + 1] == '.')
+                        ok1 = 0;
+
+                    s2 = s2 + s1[i];
+                }
+                int songIndex = connect.GetSongId(s2);
+                bool ok = connect.DeleteSong(songIndex);
+                if (!ok)
+                    MessageBox.Show("Error at deleting songs");
+            }
+
+            bool ok3 = connect.DeleteAlbum(this.numeAlbum);
+            if (ok3)
+                MessageBox.Show("Album Deleted");
+            else
+                MessageBox.Show("Delete Error");
+
+            Albums_admin newForm = new Albums_admin(this.numeArtist);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string s1 = Convert.ToString(listBox1.SelectedItem);
+            int ok1 = 1;
+            string s2 = "";
+            for(int i=0; i<s1.Length && ok1==1; i++)
+            {
+                if (s1[i + 1] == '.')
+                    ok1 = 0;
+
+                s2 = s2 + s1[i];
+            }
+            int songIndex = connect.GetSongId(s2);
+            bool ok=connect.DeleteSong(songIndex);
+            if (ok)
+                MessageBox.Show("Song Deleted");
+            else
+                MessageBox.Show("Delete Error");
+
+            listBox1.Items.Clear();
+            
+           
+            ArrayList list = new ArrayList();
+            int id = connect.GetAlbumId(this.numeArtist, this.numeAlbum);
+            list = connect.ReadSongsForAlbum(Convert.ToString(id));
+            listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            foreach (string slist in list)
+            {
+                listBox1.Items.Add(slist);
+            }
+
         }
     }
 }

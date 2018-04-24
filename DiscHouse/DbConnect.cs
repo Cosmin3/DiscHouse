@@ -16,7 +16,7 @@ namespace DiscHouse
         SqlCommandBuilder commandBuilder;
         SqlDataReader reader;
         SqlDataAdapter adapter;
-
+        SqlCommandBuilder builder;
 
         public string ReadNameFromArtist(string s)
         {
@@ -123,7 +123,7 @@ namespace DiscHouse
             int i;
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select Id from albums where (Name='" + numeAlbum + "' and [Artist.Id]=(Select Id from Artists where Name='"+numeArtist+"'))";
+            command.CommandText = "Select Id from Albums where (Name='" + numeAlbum + "' and [Artist.Id]=(Select Id from Artists where Name='"+numeArtist+"'))";
             reader = command.ExecuteReader();
             if (reader.Read())
             {
@@ -219,7 +219,7 @@ namespace DiscHouse
 
         public void AddAlbum(string albumName,DateTime year,string genre, int artistId)
         {
-            adapter = new SqlDataAdapter("SELECT * FROM albums", connection);
+            adapter = new SqlDataAdapter("SELECT * FROM Albums", connection);
             commandBuilder = new SqlCommandBuilder(adapter);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet, "Albums");
@@ -268,10 +268,83 @@ namespace DiscHouse
             }
         }
 
-        public void DeleteSong(int songIndex)
+        public bool DeleteSong(int songIndex)
         {
+            connection.Open();
+            adapter = new SqlDataAdapter("SELECT * FROM songs ORDER BY id", connection);
+            
+            builder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "songs");
+           
+            DataColumn[] pk = new DataColumn[1];
+            pk[0] = dataSet.Tables["songs"].Columns["id"];
+            dataSet.Tables["songs"].PrimaryKey = pk;
+            DataRow caut = null;
+            while (caut == null)
+            {
+
+                caut = dataSet.Tables["songs"].Rows.Find(songIndex);
+            }
+
+            try
+            {
+                
+                caut.Delete();
+                adapter.Update(dataSet, "songs");
+                connection.Close();
+                Console.WriteLine("OK");
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                Console.WriteLine("Error: 0" + ex);
+                return false;
+            }
+            
+           
+        }
+
+        public bool DeleteAlbum(string albumName)
+        {
+            connection.Open();
+            adapter = new SqlDataAdapter("SELECT * FROM Albums ORDER BY name", connection);
+
+            builder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Albums");
+
+            DataColumn[] pk = new DataColumn[1];
+            pk[0] = dataSet.Tables["Albums"].Columns["name"];
+            dataSet.Tables["Albums"].PrimaryKey = pk;
+            DataRow caut = null;
+            while (caut == null)
+            {
+
+                caut = dataSet.Tables["Albums"].Rows.Find(albumName);
+            }
+
+            try
+            {
+
+                caut.Delete();
+                adapter.Update(dataSet, "Albums");
+                connection.Close();
+                Console.WriteLine("OK");
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                Console.WriteLine("Error: 0" + ex);
+                return false;
+            }
+
 
         }
+
+
     }
 
 }
