@@ -12,6 +12,7 @@ namespace DiscHouse
 {
     public partial class AddArtist_Admin : Form
     {
+        DbConnect connect = new DbConnect();
         public AddArtist_Admin()
         {
             InitializeComponent();
@@ -29,6 +30,18 @@ namespace DiscHouse
         void closeForm(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            connect.AddArtist(textBox1.Text, textBox2.Text, textBox3.Text);
+            Artists_admin newForm = new Artists_admin();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+
         }
     }
 }

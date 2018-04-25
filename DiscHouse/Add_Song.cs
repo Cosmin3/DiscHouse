@@ -52,6 +52,9 @@ namespace DiscHouse
             time = TimeSpan.FromSeconds(t);
             connect.AddSong(textBox1.Text, time , albumId);
             MessageBox.Show("Song Added");
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)

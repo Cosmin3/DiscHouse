@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,18 @@ namespace DiscHouse
         public Artists_guest()
         {
             InitializeComponent();
+            ArrayList list = new ArrayList();
+
+            list = connect.ReadArtists();
+
+
+
+            listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            foreach (string slist in list)
+            {
+                listBox1.Items.Add(slist);
+            }
         }
 
         void closeForm(object sender, FormClosedEventArgs e)
@@ -43,11 +56,9 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index =listBox1.SelectedIndex+1;
-            string sr;
-            sr= connect.ReadNameFromArtist("Select name from artists where id=" + Convert.ToString(index));
+            string numeArtist = Convert.ToString(listBox1.SelectedItem);
 
-            Albums_guest newForm = new Albums_guest(sr);
+            Albums_guest newForm = new Albums_guest(numeArtist);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

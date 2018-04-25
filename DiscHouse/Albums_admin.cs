@@ -55,7 +55,7 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = listBox1.SelectedIndex + 1;
+           
             string numeAlbum = Convert.ToString(listBox1.SelectedItem);
             // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
 

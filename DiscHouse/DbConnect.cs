@@ -144,7 +144,7 @@ namespace DiscHouse
             ArrayList sr = new ArrayList();
             connection.Open();
             command = connection.CreateCommand();
-            command.CommandText = "Select name from artists";
+            command.CommandText = "Select name from artists order by name";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -280,6 +280,34 @@ namespace DiscHouse
 
 
             //command.CommandText = "Insert into Albums(Name,Year,Genre,[Artist.Id]) Values ('"+albumName+"',"+year+",'"+genre+"',"+artistId+")";
+
+        }
+
+        public void AddArtist(string artistName, string description, string members)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM Artists", connection);
+            commandBuilder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Artists");
+            DataRow dataRow = dataSet.Tables["Artists"].NewRow();
+            dataRow["Name"] = artistName;
+            dataRow["Description"] = description;
+            dataRow["Members"] = members;
+            dataRow["userid"] = 3;
+            
+            dataSet.Tables["Artists"].Rows.Add(dataRow);
+            try
+            {
+                adapter.Update(dataSet, "Artists");
+
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(" Nu am putut actualiza baza de date: " + ex.Message);
+            }
+
+
 
         }
 
