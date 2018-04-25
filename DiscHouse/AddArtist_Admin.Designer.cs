@@ -1,6 +1,6 @@
 ﻿namespace DiscHouse
 {
-    partial class Update_Admin
+    partial class AddArtist_Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -47,13 +47,12 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(725, 483);
+            this.button2.Location = new System.Drawing.Point(745, 483);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(225, 51);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Update";
+            this.button2.Text = "Add Artist";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -81,7 +80,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
@@ -110,18 +109,18 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Menu;
             this.label3.Location = new System.Drawing.Point(69, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 24);
+            this.label3.Size = new System.Drawing.Size(95, 24);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Year";
+            this.label3.Text = "Members";
             // 
-            // textBox4
+            // textBox2
             // 
-            this.textBox4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(183, 97);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(380, 30);
-            this.textBox4.TabIndex = 13;
+            this.textBox2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(183, 97);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(380, 30);
+            this.textBox2.TabIndex = 13;
             // 
             // label4
             // 
@@ -131,9 +130,9 @@
             this.label4.ForeColor = System.Drawing.SystemColors.Menu;
             this.label4.Location = new System.Drawing.Point(69, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 24);
+            this.label4.Size = new System.Drawing.Size(114, 24);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Genre";
+            this.label4.Text = "Description";
             // 
             // button3
             // 
@@ -146,11 +145,11 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(225, 51);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Back";
+            this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Update_Admin
+            // AddArtist_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,8 +162,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Update_Admin";
-            this.Text = "Update";
+            this.Name = "AddArtist_Admin";
+            this.Text = "Add Artist";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -179,7 +178,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
     }
 }

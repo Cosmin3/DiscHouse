@@ -77,11 +77,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(629, 194);
+            this.button2.Location = new System.Drawing.Point(630, 209);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(225, 51);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Add";
+            this.button2.Text = "Add Artist";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

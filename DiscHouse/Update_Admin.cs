@@ -42,5 +42,15 @@ namespace DiscHouse
         {
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Album_Admin newForm = new Album_Admin(this.numeArtist,this.numeAlbumVechi);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
     }
 }

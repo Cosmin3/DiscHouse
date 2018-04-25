@@ -59,6 +59,7 @@ namespace DiscHouse
             return null;
 
         }
+
         public string ReadYearFromArtist(string s)
         {
             string sr;
@@ -79,6 +80,7 @@ namespace DiscHouse
             return null;
 
         }
+
         public int GetArtistId(string numeArtist)
         {
             int i;
@@ -101,6 +103,7 @@ namespace DiscHouse
             return 0;
 
         }
+
         public ArrayList ReadAlbumsForArtist(string s)
         {
 
@@ -117,6 +120,7 @@ namespace DiscHouse
             connection.Close();
             return sr;
         }
+
         public ArrayList ReadAlbums()
         {
 
@@ -133,6 +137,7 @@ namespace DiscHouse
             connection.Close();
             return sr;
         }
+
         public ArrayList ReadArtists()
         {
 
@@ -204,6 +209,7 @@ namespace DiscHouse
             connection.Close();
             return 0;
         }
+
         public ArrayList ReadSongsForAlbum(string i)
         {
 

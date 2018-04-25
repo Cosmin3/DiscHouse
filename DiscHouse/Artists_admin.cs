@@ -57,6 +57,12 @@ namespace DiscHouse
 
         private void button2_Click(object sender, EventArgs e)
         {
+            AddArtist_Admin newForm = new AddArtist_Admin();
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
 
         }
 
