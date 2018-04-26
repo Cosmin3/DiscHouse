@@ -154,6 +154,22 @@ namespace DiscHouse
             connection.Close();
             return sr;
         }
+        public ArrayList ReadUsers()
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select name from users";
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
 
         public int GetAlbumId(string numeArtist, string numeAlbum)
         {
@@ -161,6 +177,28 @@ namespace DiscHouse
             connection.Open();
             command = connection.CreateCommand();
             command.CommandText = "Select Id from Albums where (Name='" + numeAlbum + "' and [Artist.Id]=(Select Id from Artists where Name='"+numeArtist+"'))";
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                i = Convert.ToInt32(reader["Id"]);
+
+                reader.Close();
+                connection.Close();
+                return i;
+            }
+
+
+            reader.Close();
+            connection.Close();
+            return 0;
+
+        }
+        public int GetUserId(string numeUser)
+        {
+            int i;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select Id from users where Name='" + numeUser + "'";
             reader = command.ExecuteReader();
             if (reader.Read())
             {
@@ -249,12 +287,7 @@ namespace DiscHouse
             return 0;
 
         }
-
-      /*  public void AddUser(string numeArtist,string pass)
-        {
-            command.CommandText = "Insert into users";
-        }*/
-
+              
         public void AddAlbum(string albumName,DateTime year,string genre, int artistId)
         {
             adapter = new SqlDataAdapter("SELECT * FROM Albums", connection);
@@ -305,6 +338,34 @@ namespace DiscHouse
             catch (SqlException ex)
             {
                 Console.WriteLine(" Nu am putut actualiza baza de date: " + ex.Message);
+            }
+
+
+
+        }
+
+        public bool AddUser(string userName, string pass)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM Users", connection);
+            commandBuilder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Users");
+            DataRow dataRow = dataSet.Tables["Users"].NewRow();
+            dataRow["Name"] = userName;
+            dataRow["Password"] = pass;
+            dataRow["Rights"] = 2;
+           
+
+            dataSet.Tables["Users"].Rows.Add(dataRow);
+            try
+            {
+                adapter.Update(dataSet, "Users");
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                return false;
             }
 
 
@@ -441,6 +502,47 @@ namespace DiscHouse
             
         }
 
+        public bool UpdateArtist(int idUser, ArrayList artistList, string numeArtist)
+        {
+            int row = 0;
+            int ok = 0;
+            foreach (string slist in artistList)
+            {
+                if (numeArtist == slist)
+                    ok = 1;
+                if (numeArtist != slist && ok == 0)
+                    row++;
+
+            }
+
+            adapter = new SqlDataAdapter("Select * from Artists order by name", connection);
+
+
+            builder = new SqlCommandBuilder(adapter);
+            DataSet dataset = new DataSet();
+
+            adapter.Fill(dataset, "Artists");
+
+            dataset.Tables["Artists"].Rows[row]["userid"] = idUser;
+
+            try
+            {
+
+                adapter.Update(dataset, "Artists");
+
+                
+                connection.Close();
+                Console.WriteLine("OK");
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                Console.WriteLine("Error: 0" + ex);
+                return false;
+            }
+        }
+
         public string ArtistForUser(string user)
         {
             string sr;
@@ -461,6 +563,9 @@ namespace DiscHouse
             return null;
 
         }
+
+        
+
     }
 
 }

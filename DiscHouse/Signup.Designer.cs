@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -69,7 +71,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Georgia", 12F);
-            this.textBox2.Location = new System.Drawing.Point(358, 181);
+            this.textBox2.Location = new System.Drawing.Point(358, 171);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(297, 30);
@@ -78,8 +80,9 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Georgia", 12F);
-            this.textBox3.Location = new System.Drawing.Point(358, 263);
+            this.textBox3.Location = new System.Drawing.Point(358, 240);
             this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(297, 30);
             this.textBox3.TabIndex = 3;
             // 
@@ -119,7 +122,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Georgia", 12F);
             this.label2.ForeColor = System.Drawing.SystemColors.Menu;
-            this.label2.Location = new System.Drawing.Point(148, 187);
+            this.label2.Location = new System.Drawing.Point(148, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 24);
             this.label2.TabIndex = 6;
@@ -131,7 +134,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Georgia", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.Menu;
-            this.label3.Location = new System.Drawing.Point(148, 269);
+            this.label3.Location = new System.Drawing.Point(148, 313);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 24);
             this.label3.TabIndex = 7;
@@ -140,7 +143,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Georgia", 12F);
-            this.textBox4.Location = new System.Drawing.Point(358, 341);
+            this.textBox4.Location = new System.Drawing.Point(358, 310);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(297, 30);
             this.textBox4.TabIndex = 8;
@@ -151,11 +154,31 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Georgia", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.Menu;
-            this.label4.Location = new System.Drawing.Point(148, 347);
+            this.label4.Location = new System.Drawing.Point(148, 378);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(173, 24);
             this.label4.TabIndex = 9;
             this.label4.Text = "Artist/Band Name";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Georgia", 12F);
+            this.label5.ForeColor = System.Drawing.SystemColors.Menu;
+            this.label5.Location = new System.Drawing.Point(148, 243);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 24);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Confirm Pass";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Georgia", 12F);
+            this.textBox5.Location = new System.Drawing.Point(358, 375);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(297, 30);
+            this.textBox5.TabIndex = 10;
             // 
             // Signup
             // 
@@ -163,6 +186,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DiscHouse.Properties.Resources.main_background;
             this.ClientSize = new System.Drawing.Size(982, 563);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
@@ -194,5 +219,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
