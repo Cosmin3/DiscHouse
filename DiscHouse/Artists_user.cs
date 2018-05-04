@@ -38,13 +38,15 @@ namespace DiscHouse
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string numeArtist = Convert.ToString(listBox1.SelectedItem);
-
-            Albums_user newForm = new Albums_user(numeArtist, this.loggedArtist);
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            if (numeArtist != "")
+            {
+                Albums_user newForm = new Albums_user(numeArtist, this.loggedArtist);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

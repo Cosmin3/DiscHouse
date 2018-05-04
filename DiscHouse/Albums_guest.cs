@@ -67,15 +67,17 @@ namespace DiscHouse
             
             int index = listBox1.SelectedIndex + 1;
             string numeAlbum = Convert.ToString(  listBox1.SelectedItem);
-           // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
-            
+            // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
 
-            Album_guest newForm = new Album_guest(this.numeArtist, numeAlbum);
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            if (numeAlbum != "")
+            {
+                Album_guest newForm = new Album_guest(this.numeArtist, numeAlbum);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
         }
     }
 }

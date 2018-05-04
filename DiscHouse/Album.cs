@@ -27,7 +27,13 @@ namespace DiscHouse
 
             InitializeComponent();
 
-
+            if(numeArtist!=loggedArtist)
+            {
+                button2.Hide();
+                button3.Hide();
+                button4.Hide();
+                button6.Hide();
+            }
             ArrayList list = new ArrayList();
             int id = connect.GetAlbumId(numeArtist, numeAlbum);
             list = connect.ReadSongsForAlbum(Convert.ToString(id));
@@ -110,10 +116,11 @@ namespace DiscHouse
 
                 s2 = s2 + s1[i];
             }
-
-            Player player = new Player(this.numeArtist, this.numeAlbum, s2);
-            player.Show();
-
+            if (s2 != "")
+            {
+                Player player = new Player(this.numeArtist, this.numeAlbum, s2);
+                player.Show();
+            }
 
         }
     }

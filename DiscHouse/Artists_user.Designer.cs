@@ -33,7 +33,6 @@
             this.artistsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
             this.artistsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.albumsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.AlbumsTableAdapter();
@@ -77,20 +76,6 @@
             this.artistsBindingSource.DataMember = "artists";
             this.artistsBindingSource.DataSource = this.diskHouseDataSet;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.BorderSize = 4;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(629, 194);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 51);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -132,7 +117,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 563);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -151,7 +135,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private DiskHouseDataSet diskHouseDataSet;
         private System.Windows.Forms.BindingSource albumsBindingSource;

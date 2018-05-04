@@ -49,6 +49,7 @@ namespace DiscHouse
         private void Player_FormClosing(object sender, FormClosingEventArgs e)
         {
             player.controls.stop();
+           
         }
     }
 }

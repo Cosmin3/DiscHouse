@@ -187,10 +187,11 @@ namespace DiscHouse
 
                 s2 = s2 + s1[i];
             }
-
-            Player player = new Player(this.numeArtist, this.numeAlbum, s2);
-            player.Show();
-            
+            if (s2 != "")
+            {
+                Player player = new Player(this.numeArtist, this.numeAlbum, s2);
+                player.Show();
+            }
 
         }
     }

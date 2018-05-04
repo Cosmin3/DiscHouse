@@ -59,13 +59,15 @@ namespace DiscHouse
             string numeAlbum = Convert.ToString(listBox1.SelectedItem);
             // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
 
-
-            Album_Admin newForm = new Album_Admin(this.numeArtist, numeAlbum);
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            if (numeAlbum != "")
+            {
+                Album_Admin newForm = new Album_Admin(this.numeArtist, numeAlbum);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {

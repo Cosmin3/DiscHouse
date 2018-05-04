@@ -21,6 +21,9 @@ namespace DiscHouse
             this.loggedArtist = loggedArtist;
             this.numeArtist = numeArtist;
             InitializeComponent();
+
+            if (numeArtist != loggedArtist)
+                button1.Hide();
             ArrayList list = new ArrayList();
 
             int id = connect.GetArtistId(numeArtist);
@@ -65,13 +68,15 @@ namespace DiscHouse
             string numeAlbum = Convert.ToString(listBox1.SelectedItem);
             // numeAlbum = connect.ReadNameFromAlbum("Select name from artists where id=" + Convert.ToString(index));
 
-
-            Album newForm = new Album(this.numeArtist, numeAlbum,this.loggedArtist);
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            if (numeAlbum != "")
+            {
+                Album newForm = new Album(this.numeArtist, numeAlbum, this.loggedArtist);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
         }
     }
 }
