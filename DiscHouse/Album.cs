@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,27 @@ namespace DiscHouse
             this.loggedArtist = loggedArtist;
             this.numeAlbum = numeAlbum;
             this.numeArtist = numeArtist;
+
+
             InitializeComponent();
+
+
+            ArrayList list = new ArrayList();
+            int id = connect.GetAlbumId(numeArtist, numeAlbum);
+            list = connect.ReadSongsForAlbum(Convert.ToString(id));
+            listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            foreach (string slist in list)
+            {
+                listBox1.Items.Add(slist);
+            }
+
+            label5.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
+            label4.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
+            // string awards = connect.ReadNameFromArtist("Select Name from awards where [Album.id]=" + Convert.ToString(index));
+
+
+            //  label6.Text = awards;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -75,6 +96,24 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+        void listBox1_MouseDoubleClick(object sender, EventArgs e)
+        {
+            string s1 = Convert.ToString(listBox1.SelectedItem);
+            int ok1 = 1;
+            string s2 = "";
+            for (int i = 0; i < s1.Length && ok1 == 1; i++)
+            {
+                if (s1[i + 1] == '.')
+                    ok1 = 0;
+
+                s2 = s2 + s1[i];
+            }
+
+            Player player = new Player(this.numeArtist, this.numeAlbum, s2);
+            player.Show();
+
 
         }
     }

@@ -37,11 +37,9 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = listBox1.SelectedIndex + 1;
-            string sr;
-            sr = connect.ReadNameFromArtist("Select name from artists where id=" + Convert.ToString(index));
+            string numeArtist = Convert.ToString(listBox1.SelectedItem);
 
-            Albums_user newForm = new Albums_user(sr, this.loggedArtist);
+            Albums_user newForm = new Albums_user(numeArtist, this.loggedArtist);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

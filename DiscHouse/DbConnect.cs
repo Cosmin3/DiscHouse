@@ -154,6 +154,7 @@ namespace DiscHouse
             connection.Close();
             return sr;
         }
+
         public ArrayList ReadUsers()
         {
 
@@ -193,6 +194,7 @@ namespace DiscHouse
             return 0;
 
         }
+
         public int GetUserId(string numeUser)
         {
             int i;

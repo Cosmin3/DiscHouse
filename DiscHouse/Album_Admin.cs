@@ -21,7 +21,10 @@ namespace DiscHouse
         {
             this.numeArtist = numeArtist;
             this.numeAlbum = numeAlbum;
+
             InitializeComponent();
+
+
             ArrayList list = new ArrayList();
             int id = connect.GetAlbumId(numeArtist, numeAlbum);
             list = connect.ReadSongsForAlbum(Convert.ToString(id));
@@ -169,6 +172,25 @@ namespace DiscHouse
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        void listBox1_MouseDoubleClick(object sender, EventArgs e)
+        {
+            string s1 = Convert.ToString(listBox1.SelectedItem);
+            int ok1 = 1;
+            string s2 = "";
+            for (int i = 0; i < s1.Length && ok1 == 1; i++)
+            {
+                if (s1[i + 1] == '.')
+                    ok1 = 0;
+
+                s2 = s2 + s1[i];
+            }
+
+            Player player = new Player(this.numeArtist, this.numeAlbum, s2);
+            player.Show();
+            
 
         }
     }
