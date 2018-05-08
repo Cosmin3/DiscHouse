@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
             this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
+            this.button5 = new System.Windows.Forms.Button();
             this.albumsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.AlbumsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -53,9 +53,20 @@
             this.listBox1.ValueMember = "Name";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // albumsBindingSource
+            // 
+            this.albumsBindingSource.DataMember = "Albums";
+            this.albumsBindingSource.DataSource = this.diskHouseDataSet;
+            // 
+            // diskHouseDataSet
+            // 
+            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
+            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -68,16 +79,6 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // diskHouseDataSet
-            // 
-            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
-            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // albumsBindingSource
-            // 
-            this.albumsBindingSource.DataMember = "Albums";
-            this.albumsBindingSource.DataSource = this.diskHouseDataSet;
-            // 
             // albumsTableAdapter
             // 
             this.albumsTableAdapter.ClearBeforeFill = true;
@@ -88,6 +89,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DiscHouse.Properties.Resources.Funky2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CancelButton = this.button5;
             this.ClientSize = new System.Drawing.Size(981, 562);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox1);
@@ -97,8 +99,8 @@
             this.Name = "Albums_guest";
             this.Text = "Albums";
             this.Load += new System.EventHandler(this.Albums_guest_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

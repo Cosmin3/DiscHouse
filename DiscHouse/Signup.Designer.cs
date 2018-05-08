@@ -89,6 +89,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.FlatAppearance.BorderSize = 4;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -182,9 +183,11 @@
             // 
             // Signup
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DiscHouse.Properties.Resources.main_background;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(982, 563);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox5);
