@@ -33,7 +33,7 @@ namespace DiscHouse
             ArrayList list = connect.ReadAlbums();
             connect.UpdateAlbum(textBox1.Text, textBox4.Text, textBox3.Text, list, numeAlbumVechi);
 
-            Albums_user newForm = new Albums_user(this.numeArtist,loggedArtist);
+            Albums_user newForm = new Albums_user(this.numeArtist,this.loggedArtist);
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

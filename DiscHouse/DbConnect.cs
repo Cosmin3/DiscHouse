@@ -11,7 +11,7 @@ namespace DiscHouse
 {
     class DbConnect
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-K2DSFB8\SQLEXPRESS; Initial Catalog=DiskHouse;Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-BMJULPN; Initial Catalog=DiskHouse;Integrated Security=True");
         SqlCommand command;
         SqlCommandBuilder commandBuilder;
         SqlDataReader reader;
@@ -445,8 +445,9 @@ namespace DiscHouse
             adapter.Fill(dataSet, "Albums");
 
             DataColumn[] pk = new DataColumn[1];
-            pk[0] = dataSet.Tables["Albums"].Columns["name"];
+            pk[0] = dataSet.Tables["Albums"].Columns["Name"];
             dataSet.Tables["Albums"].PrimaryKey = pk;
+
             DataRow caut = null;
             while (caut == null)
             {

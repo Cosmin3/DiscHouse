@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
+            this.diskHouseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -92,6 +97,16 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // diskHouseDataSet
+            // 
+            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
+            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // diskHouseDataSetBindingSource
+            // 
+            this.diskHouseDataSetBindingSource.DataSource = this.diskHouseDataSet;
+            this.diskHouseDataSetBindingSource.Position = 0;
+            // 
             // Albums_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -109,6 +124,8 @@
             this.Name = "Albums_admin";
             this.Text = "Albums";
             this.Load += new System.EventHandler(this.Albums_admin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -119,5 +136,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource diskHouseDataSetBindingSource;
+        private DiskHouseDataSet diskHouseDataSet;
     }
 }

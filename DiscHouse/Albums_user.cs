@@ -40,7 +40,12 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Add_Album newForm = new Add_Album(this.numeArtist);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
         }
 
         private void Albums_user_Load(object sender, EventArgs e)
@@ -70,7 +75,7 @@ namespace DiscHouse
 
             if (numeAlbum != "")
             {
-                Album newForm = new Album(this.numeArtist, numeAlbum, this.loggedArtist);
+                Album_user newForm = new Album_user(this.numeArtist, numeAlbum, this.loggedArtist);
                 newForm.FormClosed += new FormClosedEventHandler(closeForm);
                 this.Hide();
                 newForm.Show();

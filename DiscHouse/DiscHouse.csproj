@@ -123,6 +123,12 @@
       <DependentUpon>Album_guest.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Album_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Album_user.Designer.cs">
+      <DependentUpon>Album_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Artists_admin.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -231,6 +237,9 @@
       <DependentUpon>Add_Song.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Song_User.resx">
+      <DependentUpon>Add_Song_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Album.resx">
       <DependentUpon>Album.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -254,6 +263,9 @@
     <EmbeddedResource Include="Album_guest.resx">
       <DependentUpon>Album_guest.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Album_user.resx">
+      <DependentUpon>Album_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Artists_admin.resx">
       <DependentUpon>Artists_admin.cs</DependentUpon>

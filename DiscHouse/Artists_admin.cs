@@ -62,9 +62,9 @@ namespace DiscHouse
         private void Artists_admin_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'diskHouseDataSet.artists' table. You can move, or remove it, as needed.
-            this.artistsTableAdapter.Fill(this.diskHouseDataSet.artists);
+           //this.artistsTableAdapter.Fill(this.diskHouseDataSet.artists);
             // TODO: This line of code loads data into the 'diskHouseDataSet.Albums' table. You can move, or remove it, as needed.
-            this.albumsTableAdapter.Fill(this.diskHouseDataSet.Albums);
+            //this.albumsTableAdapter.Fill(this.diskHouseDataSet.Albums);
 
         }
 
