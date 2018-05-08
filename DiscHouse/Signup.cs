@@ -87,7 +87,7 @@ namespace DiscHouse
                             if (artistLinked && userCreated)
                             {
                                 MessageBox.Show("User created");
-                                Artists_user newForm = new Artists_user(textBox1.Text);
+                                Artists_user newForm = new Artists_user(textBox5.Text);
                                 newForm.FormClosed += new FormClosedEventHandler(closeForm);
                                 this.Hide();
                                 newForm.Show();
