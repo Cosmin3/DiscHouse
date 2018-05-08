@@ -41,7 +41,20 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int albumId = connect.GetAlbumId(this.numeArtist, this.numeAlbum);
+
+            string s1 = Convert.ToString(textBox1.Text);
+            bool ok = true;
+
+            for (int i = 0; i < s1.Length && ok; i++)
+            {
+                if (s1[i] == '\'' || s1[i] == '.')
+                    ok = false;
+
+            }
+
+            if (ok)
+            {
+                int albumId = connect.GetAlbumId(this.numeArtist, this.numeAlbum);
             TimeSpan time;
             int t = 60 * Convert.ToInt32(textBox2.Text) + Convert.ToInt32(textBox3.Text);
             time = TimeSpan.FromSeconds(t);
@@ -50,6 +63,9 @@ namespace DiscHouse
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+            }
+            else
+                MessageBox.Show("You cannot use the characters \' or .");
         }
     }
 }
