@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,16 +47,33 @@ namespace DiscHouse
 
                 if (ok)
                 {
-                    int artistId = connect.GetArtistId(this.artistName);
+                    bool existentAlbum = false;
+                    ArrayList list = new ArrayList();
+                    int id = connect.GetArtistId(this.artistName);
+                    list = connect.ReadAlbumsForArtist("Select Name from Albums where [Artist.Id]=" + Convert.ToString(id));
+                   
+                    foreach (string slist in list)
+                    {
 
-                    connect.AddAlbum(textBox1.Text, Convert.ToDateTime(textBox3.Text), textBox4.Text, artistId);
+                        if (slist == textBox1.Text)
+                            existentAlbum = true;
+                    }
 
-                    Add_Song newForm = new Add_Song(this.artistName, textBox1.Text);
-                    newForm.FormClosed += new FormClosedEventHandler(closeForm);
-                    this.Hide();
-                    newForm.Show();
-                    newForm.Left = this.Left;
-                    newForm.Top = this.Top;
+                    if (existentAlbum)
+                        MessageBox.Show("The album already exists in the database.");
+                    else
+                    {
+                        int artistId = connect.GetArtistId(this.artistName);
+
+                        connect.AddAlbum(textBox1.Text, Convert.ToDateTime(textBox3.Text), textBox4.Text, artistId);
+
+                        Add_Song newForm = new Add_Song(this.artistName, textBox1.Text);
+                        newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                        this.Hide();
+                        newForm.Show();
+                        newForm.Left = this.Left;
+                        newForm.Top = this.Top;
+                    }
                 }
                 else
                     MessageBox.Show("You cannot use the characters \' or .");

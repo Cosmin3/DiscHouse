@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,15 +58,33 @@ namespace DiscHouse
 
                 if (ok)
                 {
-                    int albumId = connect.GetAlbumId(this.numeArtist, this.numeAlbum);
-                    TimeSpan time;
-                    int t = 60 * Convert.ToInt32(textBox2.Text) + Convert.ToInt32(textBox3.Text);
-                    time = TimeSpan.FromSeconds(t);
-                    connect.AddSong(textBox1.Text, time, albumId);
-                    MessageBox.Show("Song Added");
-                    textBox1.Text = "";
-                    textBox2.Text = "";
-                    textBox3.Text = "";
+                    bool existentSong = false;
+                    ArrayList list = new ArrayList();
+                    int id = connect.GetAlbumId(numeArtist, numeAlbum);
+                    list = connect.ReadSongs(Convert.ToString(id));
+
+
+                    foreach (string slist in list)
+                    {
+
+                        if (slist == textBox1.Text)
+                            existentSong = true;
+                    }
+
+                    if (existentSong)
+                        MessageBox.Show("The song already exists in the database for this album.");
+                    else
+                    {
+                        int albumId = connect.GetAlbumId(this.numeArtist, this.numeAlbum);
+                        TimeSpan time;
+                        int t = 60 * Convert.ToInt32(textBox2.Text) + Convert.ToInt32(textBox3.Text);
+                        time = TimeSpan.FromSeconds(t);
+                        connect.AddSong(textBox1.Text, time, albumId);
+                        MessageBox.Show("Song Added");
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        textBox3.Text = "";
+                    }
                 }
                 else
                     MessageBox.Show("You cannot use the characters \' or .");

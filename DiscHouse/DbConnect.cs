@@ -284,6 +284,23 @@ namespace DiscHouse
             return sr;
         }
 
+        public ArrayList ReadSongs(string i)
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select Name,Length from Songs where [Album.Id]=" + i;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
+
         public int GetSongId(string songName)
         {
             int i;
