@@ -83,5 +83,7 @@ namespace DiscHouse
                 newForm.Top = this.Top;
             }
         }
+
+       
     }
 }

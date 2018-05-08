@@ -35,6 +35,7 @@ namespace DiscHouse
                 button6.Hide();
             }
             ArrayList list = new ArrayList();
+            ArrayList awardList = new ArrayList();
             int id = connect.GetAlbumId(numeArtist, numeAlbum);
             list = connect.ReadSongsForAlbum(Convert.ToString(id));
             listBox1.DataSource = null;
@@ -47,9 +48,23 @@ namespace DiscHouse
             label5.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
             label4.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
             // string awards = connect.ReadNameFromArtist("Select Name from awards where [Album.id]=" + Convert.ToString(index));
+            awardList = connect.ReadAwardsForAlbum(id);
+            string awards = "";
 
+            foreach (string award in awardList)
+            {
+                awards = awards + award + System.Environment.NewLine;
+            }
+            if (awards == "")
+            {
+                label6.Text = "No awards yet";
+            }
+            else
+            {
+                label6.Text = awards;
+            }
 
-            //  label6.Text = awards;
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -232,7 +247,11 @@ namespace DiscHouse
             newForm.Left = this.Left;
             newForm.Top = this.Top;
         }
-        
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

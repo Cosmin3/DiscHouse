@@ -38,15 +38,22 @@ namespace DiscHouse
 
             label5.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
             label4.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
-
+            
             awardList = connect.ReadAwardsForAlbum(id);
             string awards = "";
+
             foreach (string award in awardList)
             {
                 awards = awards + award + System.Environment.NewLine;
             }
-
-            label6.Text = awards;
+            if (awards == "")
+            {
+                label6.Text = "No awards yet";
+            }
+            else
+            {
+                label6.Text = awards;
+            }
         }
 
         private void Album_Admin_Load(object sender, EventArgs e)

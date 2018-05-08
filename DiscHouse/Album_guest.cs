@@ -38,12 +38,19 @@ namespace DiscHouse
 
             awardList = connect.ReadAwardsForAlbum(id);
             string awards = "";
+
             foreach (string award in awardList)
             {
                 awards = awards + award + System.Environment.NewLine;
             }
-
-            label6.Text = awards;
+            if (awards == "")
+            {
+                label6.Text = "No awards yet";
+            }
+            else
+            {
+                label6.Text = awards;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
