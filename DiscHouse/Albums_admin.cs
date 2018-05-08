@@ -97,5 +97,15 @@ namespace DiscHouse
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddAward newForm = new AddAward(this.numeArtist);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
     }
 }

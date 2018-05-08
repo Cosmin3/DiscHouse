@@ -51,6 +51,12 @@
     <Compile Include="AddArtist_Admin.Designer.cs">
       <DependentUpon>AddArtist_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAward.Designer.cs">
+      <DependentUpon>AddAward.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_Album.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -224,6 +230,9 @@
     </Compile>
     <EmbeddedResource Include="AddArtist_Admin.resx">
       <DependentUpon>AddArtist_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAward.resx">
+      <DependentUpon>AddAward.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Album.resx">
       <DependentUpon>Add_Album.cs</DependentUpon>
