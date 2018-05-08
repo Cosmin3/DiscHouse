@@ -172,6 +172,23 @@ namespace DiscHouse
             return sr;
         }
 
+        public ArrayList ReadAwardsForAlbum(int albumId)
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select name from awards where [Album.Id]="+albumId;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
+
         public int GetAlbumId(string numeArtist, string numeAlbum)
         {
             int i;
@@ -314,7 +331,31 @@ namespace DiscHouse
             }
 
 
-            //command.CommandText = "Insert into Albums(Name,Year,Genre,[Artist.Id]) Values ('"+albumName+"',"+year+",'"+genre+"',"+artistId+")";
+
+        }
+
+        public bool AddAward(string awardName, DateTime year, int albumId)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM Awards", connection);
+            commandBuilder = new SqlCommandBuilder(adapter);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Awards");
+            DataRow dataRow = dataSet.Tables["Awards"].NewRow();
+            dataRow["Name"] = awardName;
+            dataRow["Year"] = year;
+            dataRow["Album.Id"] = albumId;
+            dataSet.Tables["Awards"].Rows.Add(dataRow);
+            try
+            {
+                adapter.Update(dataSet, "Awards");
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(" Nu am putut actualiza baza de date: " + ex.Message);
+                return false;
+            }
 
         }
 

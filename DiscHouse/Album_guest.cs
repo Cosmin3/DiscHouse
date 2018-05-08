@@ -21,6 +21,8 @@ namespace DiscHouse
             this.numeArtist = numeArtist;
             this.numeAlbum = numeAlbum;
             InitializeComponent();
+
+            ArrayList awardList = new ArrayList();
             ArrayList list = new ArrayList();
             int id = connect.GetAlbumId(numeArtist, numeAlbum);
             list = connect.ReadSongsForAlbum(Convert.ToString(id));
@@ -33,10 +35,15 @@ namespace DiscHouse
             
             label4.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
             label5.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
-           // string awards = connect.ReadNameFromArtist("Select Name from awards where [Album.id]=" + Convert.ToString(index));
 
-            
-          //  label6.Text = awards;
+            awardList = connect.ReadAwardsForAlbum(id);
+            string awards = "";
+            foreach (string award in awardList)
+            {
+                awards = awards + award + System.Environment.NewLine;
+            }
+
+            label6.Text = awards;
         }
 
         private void button5_Click(object sender, EventArgs e)
