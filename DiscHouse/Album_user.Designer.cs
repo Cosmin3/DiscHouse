@@ -57,6 +57,7 @@
             this.listBox1.Size = new System.Drawing.Size(507, 504);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_MouseDoubleClick);
             // 
             // button5
             // 
