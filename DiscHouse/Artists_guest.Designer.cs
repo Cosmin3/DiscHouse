@@ -30,29 +30,41 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
             this.artistsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
+            this.button4 = new System.Windows.Forms.Button();
             this.artistsTableAdapter = new DiscHouse.DiskHouseDataSetTableAdapters.artistsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(234)))), ((int)(((byte)(218)))));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.DataSource = this.artistsBindingSource;
             this.listBox1.DisplayMember = "Name";
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 16;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(506, 530);
+            this.listBox1.Size = new System.Drawing.Size(506, 522);
             this.listBox1.TabIndex = 0;
             this.listBox1.ValueMember = "Name";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // artistsBindingSource
+            // 
+            this.artistsBindingSource.DataMember = "artists";
+            this.artistsBindingSource.DataSource = this.diskHouseDataSet;
+            // 
+            // diskHouseDataSet
+            // 
+            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
+            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button4
             // 
@@ -68,16 +80,6 @@
             this.button4.Text = "Back";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // diskHouseDataSet
-            // 
-            this.diskHouseDataSet.DataSetName = "DiskHouseDataSet";
-            this.diskHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // artistsBindingSource
-            // 
-            this.artistsBindingSource.DataMember = "artists";
-            this.artistsBindingSource.DataSource = this.diskHouseDataSet;
             // 
             // artistsTableAdapter
             // 
@@ -98,8 +100,8 @@
             this.Name = "Artists_guest";
             this.Text = "Artists";
             this.Load += new System.EventHandler(this.Artists_guest_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diskHouseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
