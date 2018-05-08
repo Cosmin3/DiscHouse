@@ -110,9 +110,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Menu;
             this.label3.Location = new System.Drawing.Point(69, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 24);
+            this.label3.Size = new System.Drawing.Size(52, 24);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Year";
+            this.label3.Text = "Date";
             // 
             // textBox4
             // 
