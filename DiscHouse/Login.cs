@@ -20,29 +20,34 @@ namespace DiscHouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int log;
-            log = connect.CheckLogIn(textBox1.Text, textBox2.Text);
-
-            if (log == -1)
-            {
-                Artists_admin newForm = new Artists_admin();
-                newForm.FormClosed += new FormClosedEventHandler(closeForm);
-                this.Hide();
-                newForm.Show();
-                newForm.Left = this.Left;
-                newForm.Top = this.Top;
-            }
-            else if (log == 1)
-            {
-                Artists_user newForm = new Artists_user(connect.ArtistForUser(textBox1.Text));
-                newForm.FormClosed += new FormClosedEventHandler(closeForm);
-                this.Hide();
-                newForm.Show();
-                newForm.Left = this.Left;
-                newForm.Top = this.Top;
-            }
+            if (textBox1.Text == "" || textBox2.Text == "")
+                MessageBox.Show("All fields must be filled");
             else
-                MessageBox.Show("User/Password incorrect");
+            {
+                int log;
+                log = connect.CheckLogIn(textBox1.Text, textBox2.Text);
+
+                if (log == -1)
+                {
+                    Artists_admin newForm = new Artists_admin();
+                    newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                    this.Hide();
+                    newForm.Show();
+                    newForm.Left = this.Left;
+                    newForm.Top = this.Top;
+                }
+                else if (log == 1)
+                {
+                    Artists_user newForm = new Artists_user(connect.ArtistForUser(textBox1.Text));
+                    newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                    this.Hide();
+                    newForm.Show();
+                    newForm.Left = this.Left;
+                    newForm.Top = this.Top;
+                }
+                else
+                    MessageBox.Show("User/Password incorrect");
+            }
             
         }
         void closeForm(object sender, FormClosedEventArgs e)

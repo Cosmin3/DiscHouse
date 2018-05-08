@@ -408,6 +408,7 @@ namespace DiscHouse
             }
             catch (SqlException ex)
             {
+                Console.WriteLine("Error: " + ex);
                 return false;
             }
 

@@ -33,6 +33,7 @@ namespace DiscHouse
             listBox1.Items.Clear();
             foreach (string slist in list)
             {
+
                 listBox1.Items.Add(slist);
             }
 

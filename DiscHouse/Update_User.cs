@@ -30,15 +30,20 @@ namespace DiscHouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ArrayList list = connect.ReadAlbums();
-            connect.UpdateAlbum(textBox1.Text, textBox4.Text, textBox3.Text, list, numeAlbumVechi);
+            if (textBox1.Text == "" || textBox4.Text == "" || textBox3.Text == "")
+                MessageBox.Show("All fields must be filled");
+            else
+            {
+                ArrayList list = connect.ReadAlbums();
+                connect.UpdateAlbum(textBox1.Text, textBox4.Text, textBox3.Text, list, numeAlbumVechi);
 
-            Albums_user newForm = new Albums_user(this.numeArtist,this.loggedArtist);
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+                Albums_user newForm = new Albums_user(this.numeArtist, this.loggedArtist);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {

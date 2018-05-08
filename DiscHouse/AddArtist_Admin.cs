@@ -34,13 +34,18 @@ namespace DiscHouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            connect.AddArtist(textBox1.Text, textBox2.Text, textBox3.Text);
-            Artists_admin newForm = new Artists_admin();
-            newForm.FormClosed += new FormClosedEventHandler(closeForm);
-            this.Hide();
-            newForm.Show();
-            newForm.Left = this.Left;
-            newForm.Top = this.Top;
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+                MessageBox.Show("All fields must be filled");
+            else
+            {
+                connect.AddArtist(textBox1.Text, textBox2.Text, textBox3.Text);
+                Artists_admin newForm = new Artists_admin();
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
 
         }
     }

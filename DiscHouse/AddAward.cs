@@ -36,22 +36,26 @@ namespace DiscHouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int albumId = connect.GetAlbumId(this.numeArtist, textBox4.Text);
-            bool ok = connect.AddAward(textBox1.Text, Convert.ToDateTime(textBox3.Text),albumId);
-
-            if (ok)
-            {
-                MessageBox.Show("Award Added");
-                Albums_admin newForm = new Albums_admin(this.numeArtist);
-                newForm.FormClosed += new FormClosedEventHandler(closeForm);
-                this.Hide();
-                newForm.Show();
-                newForm.Left = this.Left;
-                newForm.Top = this.Top;
-            }
+            if (textBox1.Text == "" || textBox4.Text == "" || textBox3.Text == "")
+                MessageBox.Show("All fields must be filled");
             else
-                MessageBox.Show("Award could not be added");
+            {
+                int albumId = connect.GetAlbumId(this.numeArtist, textBox4.Text);
+                bool ok = connect.AddAward(textBox1.Text, Convert.ToDateTime(textBox3.Text), albumId);
 
+                if (ok)
+                {
+                    MessageBox.Show("Award Added");
+                    Albums_admin newForm = new Albums_admin(this.numeArtist);
+                    newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                    this.Hide();
+                    newForm.Show();
+                    newForm.Left = this.Left;
+                    newForm.Top = this.Top;
+                }
+                else
+                    MessageBox.Show("Award could not be added");
+            }
             
         }
     }
