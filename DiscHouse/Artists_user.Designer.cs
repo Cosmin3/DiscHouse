@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Artists_user));
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.artistsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.diskHouseDataSet = new DiscHouse.DiskHouseDataSet();
@@ -122,6 +123,7 @@
             this.Controls.Add(this.listBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Artists_user";
             this.Text = "Artists";
