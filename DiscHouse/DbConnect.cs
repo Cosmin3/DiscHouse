@@ -155,6 +155,24 @@ namespace DiscHouse
             return sr;
         }
 
+        public ArrayList ReadGuestArtists()
+        {
+
+            ArrayList sr = new ArrayList();
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select name from artists where userid = 3 order by name";
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sr.Add(Convert.ToString(reader["Name"]));
+            }
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
+
+
         public ArrayList ReadUsers()
         {
 

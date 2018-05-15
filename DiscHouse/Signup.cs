@@ -17,6 +17,14 @@ namespace DiscHouse
         public Signup()
         {
             InitializeComponent();
+
+            
+            foreach (string elem in connect.ReadGuestArtists())
+            {
+                comboBox1.Items.Add(elem);
+
+            }
+
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {
@@ -64,16 +72,10 @@ namespace DiscHouse
                         MessageBox.Show("Wrong Registration Code");
                     else
                     {
-                        list = connect.ReadArtists();
-                        foreach (string slist in list)
-                        {
-                            if (slist == textBox5.Text)
-                                hasArtist = true;
+                        
 
-                        }
-
-                        if (!hasArtist)
-                            MessageBox.Show("The artist you chose isn't in our data base yet!");
+                        if (comboBox1.SelectedItem.ToString()=="")
+                            MessageBox.Show("Please choose an artist!");
                         else
                         {
                             userCreated = connect.AddUser(textBox1.Text, textBox2.Text);
@@ -81,13 +83,13 @@ namespace DiscHouse
                                 MessageBox.Show("Error at user");
                             int idUser = connect.GetUserId(textBox1.Text);
                             ArrayList artistList = connect.ReadArtists();
-                            artistLinked= connect.UpdateArtist(idUser, artistList, textBox5.Text);
+                            artistLinked= connect.UpdateArtist(idUser, artistList, comboBox1.SelectedItem.ToString());
                             if(!artistLinked)
                                 MessageBox.Show("Error at link");
                             if (artistLinked && userCreated)
                             {
                                 MessageBox.Show("User created");
-                                Artists_user newForm = new Artists_user(textBox5.Text);
+                                Artists_user newForm = new Artists_user(comboBox1.SelectedItem.ToString());
                                 newForm.FormClosed += new FormClosedEventHandler(closeForm);
                                 this.Hide();
                                 newForm.Show();

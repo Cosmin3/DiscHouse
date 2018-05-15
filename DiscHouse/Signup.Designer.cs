@@ -40,7 +40,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -174,13 +174,14 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Confirm Pass";
             // 
-            // textBox5
+            // comboBox1
             // 
-            this.textBox5.Font = new System.Drawing.Font("Georgia", 12F);
-            this.textBox5.Location = new System.Drawing.Point(358, 375);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(297, 30);
-            this.textBox5.TabIndex = 10;
+            this.comboBox1.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(358, 378);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(297, 32);
+            this.comboBox1.TabIndex = 12;
             // 
             // Signup
             // 
@@ -190,8 +191,8 @@
             this.BackgroundImage = global::DiscHouse.Properties.Resources.main_background;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(982, 563);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
@@ -225,6 +226,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
