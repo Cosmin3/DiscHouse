@@ -22,6 +22,9 @@ namespace DiscHouse
             this.numeArtist = numeArtist;
             InitializeComponent();
 
+            label4.Text = numeArtist;
+            label3.Text = connect.readMembers(numeArtist);
+
             if (numeArtist != loggedArtist)
                 button1.Hide();
             ArrayList list = new ArrayList();

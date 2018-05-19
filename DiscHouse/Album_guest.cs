@@ -33,8 +33,8 @@ namespace DiscHouse
                 listBox1.Items.Add(slist);
             }
             
-            label4.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
-            label5.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
+            label5.Text = connect.ReadYearFromArtist("Select year from albums where id=" + Convert.ToString(id));
+            label4.Text = connect.ReadGenreFromArtist("Select genre from albums where id=" + Convert.ToString(id));
 
             awardList = connect.ReadAwardsForAlbum(id);
             string awards = "";

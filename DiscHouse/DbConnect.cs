@@ -644,7 +644,23 @@ namespace DiscHouse
 
         }
 
-        
+        public string readMembers(string artistName)
+        {
+
+            string sr;
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "Select members from artists where id=(Select id from artists where name ='" + artistName + "')";
+            reader = command.ExecuteReader();
+            reader.Read();
+
+            sr = Convert.ToString(reader["Members"]);
+
+            reader.Close();
+            connection.Close();
+            return sr;
+        }
+
 
     }
 

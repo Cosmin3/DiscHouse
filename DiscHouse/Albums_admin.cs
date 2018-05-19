@@ -23,6 +23,8 @@ namespace DiscHouse
 
             int id = connect.GetArtistId(numeArtist);
 
+            label4.Text = numeArtist;
+            label3.Text = connect.readMembers(numeArtist);
 
             list = connect.ReadAlbumsForArtist("Select Name from Albums where [Artist.Id]=" + Convert.ToString(id));
             listBox1.DataSource = null;
@@ -107,6 +109,11 @@ namespace DiscHouse
             newForm.Show();
             newForm.Left = this.Left;
             newForm.Top = this.Top;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
