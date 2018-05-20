@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ namespace DiscHouse
             
             InitializeComponent();
             player.URL = @"Music\" + this.artistName + @"\" + this.albumName + @"\" + this.songName + ".mp3";
+            if(this.artistName=="Eminem")
+                player.URL = @"Music\" + this.artistName + @"\" + this.albumName + @"\" + this.songName + ".m4a";
             label4.Text = songName;
             
             this.FormClosing += Player_FormClosing;
