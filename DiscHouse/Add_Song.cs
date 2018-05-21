@@ -109,9 +109,10 @@ namespace DiscHouse
             DialogResult result = FD.ShowDialog();
             textBox1.Text = Path.GetFileNameWithoutExtension(FD.ToString());
             string source = FD.FileName;
-            string path = @"D:\Scoala\An 3\Sem 2\II\Project\DiscHouse\DiscHouse\bin\Debug\Music\" + numeArtist + @"\" + numeAlbum + @"\";
+            string path = @"Music\" + numeArtist + @"\" + numeAlbum + @"\";
             Directory.CreateDirectory(path);
-            File.Copy(source, path + Path.GetFileName(FD.ToString()), true);
+            if(source!="")
+              File.Copy(source, path + Path.GetFileName(FD.ToString()), true);
 
         }
 
