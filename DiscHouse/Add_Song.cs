@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace DiscHouse
 {
@@ -101,6 +102,19 @@ namespace DiscHouse
         private void button2_Click(object sender, EventArgs e)
         {
             connect.DeleteSong(connect.GetSongId(textBox1.Text));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            var FD = new System.Windows.Forms.OpenFileDialog();
+            DialogResult result = FD.ShowDialog();
+            textBox1.Text = Path.GetFileNameWithoutExtension(FD.ToString());
+            string source=FD.FileName;
+            string path= @"D:\Scoala\An 3\Sem 2\II\Project\DiscHouse\DiscHouse\bin\Debug\Music\" + numeArtist+@"\"+numeAlbum+@"\";
+            Directory.CreateDirectory(path);
+            File.Copy(source, path + Path.GetFileName(FD.ToString()), true);
+
         }
     }
 }
