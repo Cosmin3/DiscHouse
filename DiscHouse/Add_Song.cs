@@ -16,12 +16,14 @@ namespace DiscHouse
     {
         string numeArtist;
         string numeAlbum;
+        string connectedUser;
         DbConnect connect = new DbConnect();
 
-        public Add_Song(string numeArtist,string numeAlbum)
+        public Add_Song(string numeArtist,string numeAlbum, string connectedUser)
         {
             this.numeAlbum = numeAlbum;
             this.numeArtist = numeArtist;
+            this.connectedUser = connectedUser;
             InitializeComponent();
         }
 
@@ -32,14 +34,25 @@ namespace DiscHouse
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            if (connectedUser == "admin")
+            {
                 Albums_admin newForm = new Albums_admin(this.numeArtist);
                 newForm.FormClosed += new FormClosedEventHandler(closeForm);
                 this.Hide();
                 newForm.Show();
                 newForm.Left = this.Left;
                 newForm.Top = this.Top;
-            
+            }
+            else
+            {
+                Albums_user newForm = new Albums_user(this.numeArtist,connectedUser);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
+
         }
         void closeForm(object sender, FormClosedEventArgs e)
         {

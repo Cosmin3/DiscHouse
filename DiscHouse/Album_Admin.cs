@@ -88,7 +88,7 @@ namespace DiscHouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Add_Song newForm = new Add_Song(this.numeArtist, this.numeAlbum);
+            Add_Song newForm = new Add_Song(this.numeArtist, this.numeAlbum,"admin");
             newForm.FormClosed += new FormClosedEventHandler(closeForm);
             this.Hide();
             newForm.Show();

@@ -67,7 +67,7 @@ namespace DiscHouse
 
                         connect.AddAlbum(textBox1.Text, Convert.ToDateTime(textBox3.Text), textBox4.Text, artistId);
 
-                        Add_Song newForm = new Add_Song(this.artistName, textBox1.Text);
+                        Add_Song newForm = new Add_Song(this.artistName, textBox1.Text,"admin");
                         newForm.FormClosed += new FormClosedEventHandler(closeForm);
                         this.Hide();
                         newForm.Show();
