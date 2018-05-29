@@ -38,13 +38,29 @@ namespace DiscHouse
                 MessageBox.Show("All fields must be filled");
             else
             {
-                connect.AddArtist(textBox1.Text, textBox2.Text, textBox3.Text);
-                Artists_admin newForm = new Artists_admin();
-                newForm.FormClosed += new FormClosedEventHandler(closeForm);
-                this.Hide();
-                newForm.Show();
-                newForm.Left = this.Left;
-                newForm.Top = this.Top;
+
+                string s1 = Convert.ToString(textBox1.Text);
+                bool ok = true;
+
+                for (int i = 0; i < s1.Length && ok; i++)
+                {
+                    if (s1[i] == '\'')
+                        ok = false;
+
+                }
+
+                if (ok)
+                {
+                    connect.AddArtist(textBox1.Text, textBox2.Text, textBox3.Text);
+                    Artists_admin newForm = new Artists_admin();
+                    newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                    this.Hide();
+                    newForm.Show();
+                    newForm.Left = this.Left;
+                    newForm.Top = this.Top;
+                }
+                else
+                    MessageBox.Show("You cannot use the character \'");
             }
 
         }
