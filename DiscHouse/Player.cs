@@ -27,8 +27,6 @@ namespace DiscHouse
             
             InitializeComponent();
             player.URL = @"Music\" + this.artistName + @"\" + this.albumName + @"\" + this.songName + ".mp3";
-            if(this.artistName=="Eminem")
-                player.URL = @"Music\" + this.artistName + @"\" + this.albumName + @"\" + this.songName + ".m4a";
             label4.Text = songName;
             
             this.FormClosing += Player_FormClosing;

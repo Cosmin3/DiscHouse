@@ -18,7 +18,6 @@ INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (4, 
 INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (5, N'Haggard', N'folk', N'lalal', 10)
 INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (6, N'Nate Dogg', N'G-Funk', N'Nate Dogg', 12)
 INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (7, N'Xzibit', N'Rap', N'Xzibit', 11)
-INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (9, N'Eminem', N'Rap', N'Eminem,Marshall Mathers, Slim Shady', 18)
 INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (10, N'Wu Tang Clan', N'Rap', N'RZA, GZA, ODB, Method Man, Raekwon, Ghostface Killah', 3)
 INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (11, N'Nujabes', N'Jazz Rap', N'Jun Seba', 3)
 INSERT DiskHouse.dbo.artists(Id, Name, Description, Members, userid) VALUES (12, N'Heilung', N'Nordic Folk', N'Maria Franz, Christopher Juul, Kai Uwe Faust', 3)

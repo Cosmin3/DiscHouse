@@ -21,7 +21,7 @@ INSERT DiskHouse.dbo.users(Id, Name, Password, Rights) VALUES (10, N'HG', N'invi
 INSERT DiskHouse.dbo.users(Id, Name, Password, Rights) VALUES (11, N'X', N'dawg', N'2')
 INSERT DiskHouse.dbo.users(Id, Name, Password, Rights) VALUES (12, N'ND', N'213', N'2')
 INSERT DiskHouse.dbo.users(Id, Name, Password, Rights) VALUES (13, N'AT', N'pass', N'2')
-INSERT DiskHouse.dbo.users(Id, Name, Password, Rights) VALUES (18, N'M&M', N'D12', N'2')
+
 GO
 SET IDENTITY_INSERT DiskHouse.dbo.users OFF
 GO
