@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DiscHouse
+{
+    public partial class Update_Admin : Form
+    {
+        DbConnect connect = new DbConnect();
+        string numeArtist;
+        string numeAlbumVechi;
+        public Update_Admin(String numeAlbum, String genre, string year,string numeArtist)
+        {
+
+            this.numeArtist = numeArtist;
+            this.numeAlbumVechi = numeAlbum;
+            InitializeComponent();
+            textBox1.Text = numeAlbum;
+            textBox4.Text = genre;
+            textBox3.Text = year;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "" || textBox4.Text == "" || textBox3.Text == "")
+                MessageBox.Show("All fields must be filled");
+            else
+            {
+                ArrayList list = connect.ReadAlbums();
+                connect.UpdateAlbum(textBox1.Text, textBox4.Text, textBox3.Text, list, numeAlbumVechi);
+                Albums_admin newForm = new Albums_admin(this.numeArtist);
+                newForm.FormClosed += new FormClosedEventHandler(closeForm);
+                this.Hide();
+                newForm.Show();
+                newForm.Left = this.Left;
+                newForm.Top = this.Top;
+            }
+        }
+        void closeForm(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Album_Admin newForm = new Album_Admin(this.numeArtist,this.numeAlbumVechi);
+            newForm.FormClosed += new FormClosedEventHandler(closeForm);
+            this.Hide();
+            newForm.Show();
+            newForm.Left = this.Left;
+            newForm.Top = this.Top;
+        }
+    }
+}
