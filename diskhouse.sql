@@ -7,10 +7,10 @@
 -- Versiune server: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
-/*SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";*/
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -19,12 +19,15 @@ SET time_zone = "+00:00";*/
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+
 -- Database: "diskhouse"
+
 --
 
 -- --------------------------------------------------------
 
 --
+
 -- Structura de tabel pentru tabelul "albums"
 --
 
@@ -37,9 +40,11 @@ CREATE TABLE "Albums" (
   PRIMARY KEY (Id)
 ) 
 
+
 -- --------------------------------------------------------
 
 --
+
 -- Structura de tabel pentru tabelul "artists"
 --
 
@@ -52,9 +57,11 @@ CREATE TABLE "artists" (
   PRIMARY KEY (Id)
 ) 
 
+
 -- --------------------------------------------------------
 
 --
+
 -- Structura de tabel pentru tabelul "awards"
 --
 
@@ -66,9 +73,11 @@ CREATE TABLE "awards" (
   PRIMARY KEY(Id)
 )
 
+
 -- --------------------------------------------------------
 
 --
+
 -- Structura de tabel pentru tabelul "songs"
 --
 
@@ -115,6 +124,7 @@ ALTER TABLE "awards"
 --
 ALTER TABLE "songs"
   ADD CONSTRAINT "songs_ibfk_1" FOREIGN KEY ("Album.Id") REFERENCES "albums" ("Id") ON UPDATE CASCADE;
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
